@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Sara F. Rodriguez | Forever & Always</title>
+  <meta name="description" content="A digital sanctuary of love, poetry, and devotion for Sara F. Rodriguez." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Canvas for floating rose petals & magical sparkles -->
+  <canvas id="petalCanvas"></canvas>
+
+  <!-- Ambient Sound Control -->
+  <div class="sound-control-container">
+    <button id="soundToggleBtn" class="sound-btn" aria-label="Toggle Ambient Audio">
+      <i class="fa-solid fa-music"></i>
+      <span id="soundLabel">Play Soundscape</span>
+    </button>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="logo">S &amp; M</div>
+    <nav class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#poems">Poetry</a>
+      <a href="#generator">Verse Maker</a>
+      <a href="#reasons">Why Sara</a>
+      <a href="#garden">Secret Garden</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <div class="subtitle-badge">
+        <i class="fa-solid fa-heart icon-pulse"></i> Dedicated to Sara F. Rodriguez
+      </div>
+      <h1 class="hero-title">
+        To My Dearest <span class="highlight-text">Sara</span>
+      </h1>
+      <p class="hero-subtitle" id="typewriterText"></p>
+      
+      <div class="hero-banner-image">
+        <img src="assets/rose.jpg" alt="Romantic artwork dedicated to Sara F. Rodriguez" class="hero-img" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#poems" class="btn btn-primary">
+          <i class="fa-solid fa-scroll"></i> Read Poems
+        </a>
+        <a href="#generator" class="btn btn-secondary">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Generate New Verse
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Poem Section -->
+  <section id="poems" class="section poems-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Colección de Amor</span>
+        <h2 class="section-title">Verses Written For Sara</h2>
+        <p class="section-desc">
+          They say real love isn't found in fairy tales, but in the magic of quiet mornings, 
+          warm laughter, and the gentle beauty of Sara F. Rodriguez.
+        </p>
+      </div>
+
+      <!-- Poem Category Filter -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-category="all">All Verses</button>
+        <button class="filter-btn" data-category="spanish">En Español</button>
+        <button class="filter-btn" data-category="everyday">Everyday Magic</button>
+        <button class="filter-btn" data-category="devotion">Eternal Love</button>
+      </div>
+
+      <!-- Poem Cards Grid -->
+      <div class="poem-grid" id="poemGrid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Custom Verse Generator -->
+  <section id="generator" class="section generator-section">
+    <div class="container">
+      <div class="generator-card glass-panel">
+        <div class="generator-header">
+          <i class="fa-solid fa-feather-pointed generator-icon"></i>
+          <h2>Sara's Personal Poem Generator</h2>
+          <p>Click below to compose a fresh, unique poem tailored just for Sara F. Rodriguez.</p>
+        </div>
+
+        <div class="generator-controls">
+          <div class="control-group">
+            <label for="poemMood">Select Mood / Vibe:</label>
+            <select id="poemMood" class="custom-select">
+              <option value="warm">Warm &amp; Tender (Cálido y Tierno)</option>
+              <option value="passionate">Passionate &amp; Deep (Apasionado)</option>
+              <option value="sweet">Sweet &amp; Playful (Dulce y Alegre)</option>
+              <option value="poetic">Classic Romantic (Clásico)</option>
+            </select>
+          </div>
+          <button id="generateVerseBtn" class="btn btn-primary btn-glow">
+            <i class="fa-solid fa-sparkles"></i> Create New Verse
+          </button>
+        </div>
+
+        <div class="generated-output-box" id="generatedOutput">
+          <div class="poem-paper">
+            <div class="paper-watermark">Sara</div>
+            <p class="generated-stanza" id="generatedStanza">
+              "In every ordinary ray of morning light,<br>
+              Sara turns the shadowed earth to bright.<br>
+              No crown required, no distant royal flame—<br>
+              My heart finds all its heaven in her name."
+            </p>
+            <div class="poem-author">— Dedicated to Sara F. Rodriguez</div>
+          </div>
+          <button id="copyPoemBtn" class="btn btn-small">
+            <i class="fa-solid fa-copy"></i> Copy Poem
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reasons Why Sara Is Extraordinary Grid -->
+  <section id="reasons" class="section reasons-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Infinito Amor</span>
+        <h2 class="section-title">The Magic of Sara</h2>
+        <p class="section-desc">Flip the cards below to discover why Sara F. Rodriguez is the absolute center of my universe.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <i class="fa-solid fa-sun card-icon"></i>
+              <h3>Her Warmth</h3>
+              <p class="tap-hint">Click to flip</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>Like warm Spanish sunshine on a crisp morning, her laughter brightens even the greyest days instantly.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <i class="fa-solid fa-eye card-icon"></i>
+              <h3>Her Eyes</h3>
+              <p class="tap-hint">Click to flip</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>Looking into Sara's eyes feels like returning home—full of truth, kindness, and quiet grace.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <i class="fa-solid fa-hand-holding-heart card-icon"></i>
+              <h3>Authentic Beauty</h3>
+              <p class="tap-hint">Click to flip</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>She doesn't need filters or fame. Sara's genuine soul makes every simple moment feel completely extraordinary.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <i class="fa-solid fa-mug-hot card-icon"></i>
+              <h3>Our Everyday Life</h3>
+              <p class="tap-hint">Click to flip</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>Shared coffees, quiet evenings, silly jokes, and holding hands—with Sara, the ordinary is absolute magic.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <i class="fa-solid fa-heart-pulse card-icon"></i>
+              <h3>Her Spanish Charm</h3>
+              <p class="tap-hint">Click to flip</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>Passion, warmth, devotion, and a smile that makes time stop. Sara F. Rodriguez is one of a kind.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <i class="fa-solid fa-infinity card-icon"></i>
+              <h3>My Future Wife</h3>
+              <p class="tap-hint">Click to flip</p>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>My best friend, my soulmate, and my tomorrow. Choosing Sara every single day forever.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Secret Rose Garden -->
+  <section id="garden" class="section garden-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Jardín Secreto</span>
+        <h2 class="section-title">Sara's Interactive Rose Garden</h2>
+        <p class="section-desc">Click on any rose in the garden to pick a secret love message crafted specifically for Sara!</p>
+      </div>
+
+      <div class="garden-container glass-panel">
+        <div class="roses-row" id="rosesRow">
+          <!-- Injected dynamically via JS -->
+        </div>
+
+        <div class="revealed-message-box" id="gardenMessageBox">
+          <div class="message-content" id="gardenMessageText">
+            🌸 Pick a rose above to reveal a hidden secret message...
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p class="footer-love">Made with endless love for <strong>Sara F. Rodriguez</strong> ❤️</p>
+      <p class="footer-tech">Designed &amp; ready for instant 1-click deployment on <span>GitHub Pages</span></p>
+    </div>
+  </footer>
+
+  <!-- Notification toast -->
+  <div id="toast" class="toast hidden">Copied to clipboard!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
