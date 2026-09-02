@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Misión Im-Paella-ble: The Secret Recipe to Sara's Heart 🎬🥘</title>
+  <meta name="description" content="A feature-length interactive CMD terminal movie and Spanish culinary rom-com created for Sara." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="cinema.css" />
+</head>
+<body class="crt-theme">
+  <!-- Scanline CRT Effect Overlay -->
+  <div class="scanlines" id="scanlinesOverlay"></div>
+
+  <!-- Background Ambient Glow -->
+  <div class="bg-glow"></div>
+
+  <!-- Main Cinema Container -->
+  <main class="cinema-wrapper">
+    <!-- Retro Window Header -->
+    <header class="terminal-header">
+      <div class="header-left">
+        <span class="cmd-icon">⚡</span>
+        <span class="cmd-title">C:\Windows\System32\cmd.exe - Misión Im-Paella-ble: El Cine de Sara 🎬</span>
+      </div>
+      <div class="header-controls">
+        <button id="btnToggleSound" class="tool-btn" title="Toggle Sound">🔊 Sound: ON</button>
+        <button id="btnToggleCrt" class="tool-btn" title="Toggle CRT Scanlines">📺 CRT: ON</button>
+        <a href="../" class="tool-btn exit-btn" title="Return to Homepage">✕ Exit</a>
+      </div>
+    </header>
+
+    <!-- Terminal Screen Body -->
+    <div class="terminal-body" id="terminalBody">
+      <!-- Top Letterbox Bar -->
+      <div class="filmstrip-bar" id="topFilmstrip">
+        <span class="film-cells">[■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■]</span>
+      </div>
+
+      <!-- Main Display Screen -->
+      <div class="screen-viewport" id="screenViewport">
+        <!-- Start Cinema Splash Prompt (Overcomes browser autoplay policy) -->
+        <div id="startOverlay" class="start-overlay">
+          <div class="start-card">
+            <div class="ticket-stamp">★ ADMIT ONE ★</div>
+            <h1 class="start-title">MISIÓN IM-PAELLA-BLE</h1>
+            <p class="start-subtitle">The Secret Recipe to Sara's Heart</p>
+            <div class="rating-pill">RATED [ S ] : EXCLUSIVELY FOR SARA</div>
+            <p class="start-desc">A Feature-Length Interactive Romantic Comedy Movie running inside Command Prompt.</p>
+            <button id="btnStartMovie" class="btn-play-movie">
+              ▶ ENTER CINEMA & ROLL FILM
+            </button>
+            <p class="sound-hint">🔊 Turn your volume up for the full Hollywood voiceover & flamenco guitar experience!</p>
+          </div>
+        </div>
+
+        <!-- Terminal Preformatted Output Container -->
+        <pre id="terminalOutput" class="terminal-output" style="display: none;"></pre>
+      </div>
+
+      <!-- Bottom Letterbox Bar -->
+      <div class="filmstrip-bar" id="botFilmstrip">
+        <span class="film-cells">[■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■  ■ ■]</span>
+      </div>
+    </div>
+
+    <!-- Interactive On-Screen Touch Controls (Essential for mobile & easy desktop clicks) -->
+    <footer class="terminal-footer">
+      <div class="mobile-prompt" id="mobilePromptText">Press SPACE or tap below to interact</div>
+      <div class="controls-toolbar" id="controlsToolbar">
+        <!-- Injected dynamically based on scene state -->
+      </div>
+    </footer>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="cinema.js"></script>
+</body>
+</html>

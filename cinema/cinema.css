@@ -1,0 +1,435 @@
+/* cinema.css - Retro CRT & CMD Terminal Styling for Sara's Movie */
+
+:root {
+  --bg-color: #08070d;
+  --terminal-bg: rgba(13, 11, 24, 0.95);
+  --border-gold: #f59e0b;
+  --text-gold: #fef08a;
+  --text-saffron: #ffc107;
+  --text-crimson: #ef4444;
+  --text-rose: #fb7185;
+  --text-white: #f8fafc;
+  --text-muted: #94a3b8;
+  --glow-gold: 0 0 15px rgba(245, 158, 11, 0.35);
+  --font-mono: 'Fira Code', Consolas, Monaco, 'Courier New', monospace;
+  --font-ui: 'Plus Jakarta Sans', -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-white);
+  font-family: var(--font-mono);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ambient Background Glow */
+.bg-glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vh;
+  background: radial-gradient(circle, rgba(180, 83, 9, 0.15) 0%, rgba(136, 19, 55, 0.1) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* CRT Scanline Overlay */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+
+.scanlines.off {
+  opacity: 0;
+}
+
+/* Cinema Wrapper */
+.cinema-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 980px;
+  background: var(--terminal-bg);
+  border: 2px solid var(--border-gold);
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.25), 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+/* Terminal Header */
+.terminal-header {
+  background: #18142a;
+  border-bottom: 2px solid rgba(245, 158, 11, 0.3);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cmd-icon {
+  font-size: 14px;
+}
+
+.cmd-title {
+  font-size: 12px;
+  color: var(--text-gold);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tool-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fef08a;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tool-btn:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: var(--border-gold);
+  color: #fff;
+}
+
+.exit-btn {
+  background: rgba(220, 38, 38, 0.2);
+  border-color: rgba(220, 38, 38, 0.5);
+  color: #fca5a5;
+}
+
+.exit-btn:hover {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* Terminal Body */
+.terminal-body {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #090812;
+  min-height: 480px;
+  position: relative;
+}
+
+.filmstrip-bar {
+  background: #110e20;
+  color: #64748b;
+  font-size: 11px;
+  padding: 6px 0;
+  text-align: center;
+  user-select: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  letter-spacing: 2px;
+  overflow: hidden;
+}
+
+.screen-viewport {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  overflow-x: auto;
+}
+
+/* Preformatted Output */
+.terminal-output {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 1.28vw, 13.5px);
+  line-height: 1.25;
+  color: var(--text-white);
+  white-space: pre;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Start Overlay Card */
+.start-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 620px;
+}
+
+.start-card {
+  background: linear-gradient(135deg, rgba(30, 24, 54, 0.9) 0%, rgba(15, 12, 30, 0.95) 100%);
+  border: 2px solid var(--border-gold);
+  border-radius: 16px;
+  padding: 35px 25px;
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+  position: relative;
+}
+
+.ticket-stamp {
+  display: inline-block;
+  background: #dc2626;
+  color: #fff;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+}
+
+.start-title {
+  font-family: var(--font-ui);
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 800;
+  color: var(--text-gold);
+  text-shadow: 0 0 20px rgba(254, 240, 138, 0.6);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.start-subtitle {
+  color: var(--text-rose);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.rating-pill {
+  display: inline-block;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid var(--border-gold);
+  color: var(--text-gold);
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.start-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.btn-play-movie {
+  background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);
+  color: #fff;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 0 4px 15px rgba(220, 38, 38, 0.4);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-play-movie:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.7);
+}
+
+.sound-hint {
+  font-size: 11px;
+  color: #cbd5e1;
+  margin-top: 18px;
+}
+
+/* Terminal Footer / Touch Toolbar */
+.terminal-footer {
+  background: #110e20;
+  border-top: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-prompt {
+  font-size: 11px;
+  color: var(--text-gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.controls-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.btn-action {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid var(--border-gold);
+  color: #fef08a;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-action:hover, .btn-action:active {
+  background: #f59e0b;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.btn-secret {
+  background: rgba(244, 114, 182, 0.15);
+  border-color: #f472b6;
+  color: #fbcfe8;
+}
+
+.btn-secret:hover {
+  background: #f472b6;
+  color: #000;
+}
+
+/* Screen Shake Animation (Hans Zimmer effect) */
+@keyframes shakeAnimation {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(0deg); }
+}
+
+.shake-screen {
+  animation: shakeAnimation 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* ANSI Color Classes for HTML pre rendering */
+.ansi-gold { color: #facc15; font-weight: bold; }
+.ansi-amber { color: #f59e0b; }
+.ansi-saffron { color: #ffc107; font-weight: bold; }
+.ansi-crimson { color: #ef4444; font-weight: bold; }
+.ansi-sangria { color: #e11d48; }
+.ansi-rose { color: #fb7185; }
+.ansi-hotpink { color: #f472b6; font-weight: bold; }
+.ansi-sea { color: #38bdf8; }
+.ansi-olive { color: #84cc16; }
+.ansi-white { color: #ffffff; font-weight: 500; }
+.ansi-gray { color: #94a3b8; }
+.ansi-darkgray { color: #475569; }
+.ansi-nightsky { color: #818cf8; }
+
+/* Responsive adjustments */
+@media (max-width: 680px) {
+  body {
+    padding: 4px;
+  }
+  .cinema-wrapper {
+    border-radius: 8px;
+  }
+  .terminal-header {
+    padding: 8px 12px;
+  }
+  .cmd-title {
+    max-width: 180px;
+  }
+  .screen-viewport {
+    padding: 8px;
+    min-height: 360px;
+  }
+  .terminal-output {
+    font-size: 9.5px;
+    line-height: 1.15;
+  }
+  .start-card {
+    padding: 20px 15px;
+  }
+  .btn-play-movie {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}
