@@ -142,7 +142,7 @@ function renderScene({ location = '', speaker = '', subtitle = '', heartMeter = 
   if (speaker || subtitle) {
     const boxW = 76;
     html += padCenter(`<span class="ansi-saffron">┌${'─'.repeat(boxW - 2)}┐</span>`) + '\n';
-    
+
     if (speaker) {
       const spkText = ` ★ ${speaker.toUpperCase()}: `;
       const padRight = Math.max(0, boxW - 4 - spkText.length);
@@ -221,7 +221,7 @@ const ART = {
     '<span class="ansi-darkgray">        |   [FRONT DESK]                     [KEYCARDS] [RECEPTION BELL] | </span>',
     '<span class="ansi-saffron">        |   ┌───────────────┐                  ┌──┐       (o)           | </span>',
     '<span class="ansi-rose">        |   │ SARA (On Duty)│                  │░░│      / | \\          | </span>',
-    '<span class="ansi-saffron">        |   │ Looking Spicy │   KIERAN FLIRTS  └──┘     /  |  \\  KIERAN | </span>',
+    '<span class="ansi-saffron">        |   │ Looking Spicy │   KIERAN (6ft 3))  └──┘     /  |  \\  KIERAN | </span>',
     '<span class="ansi-gold">        |   └───────────────┘   ────────────&gt;          (_______) SMILES | </span>',
     '<span class="ansi-darkgray">     ═══╧═══════════════════════════════════════════════════════════════╧══ </span>'
   ],
@@ -245,7 +245,7 @@ const ART = {
     '<span class="ansi-rose">                       (i)  CANDLE LIGHT        🍷 WINE GLASS               </span>',
     '<span class="ansi-saffron">                 🍕 SAFESTAY PIZZA    🥐 PAIN AU CHOCOLAT                   </span>',
     '<span class="ansi-crimson">                 🥘 SIZZLING SPANISH TAPAS FOR SARA SEÑORITA                </span>',
-    '<span class="ansi-gold">                 "Best food in town with the best girl in the world"         </span>',
+    '<span class="ansi-gold">                 "Best safestay food with the hottest girl in the hostel"         </span>',
     '<span class="ansi-darkgray">     ══════════════════════════════════════════════════════════════════════ </span>'
   ],
 
@@ -287,8 +287,8 @@ async function runAct0() {
   await sleep(1800);
 
   renderScene({
-    location: "MINISTRY OF ROMANCE & DRAMA",
-    subtitle: "RATED [ S ] : EXCLUSIVELY FOR SARA SEÑORITA. Contains excessive romance, Safestay banter, and 100% unconditional love.",
+    location: "94-116 Cowgate, Edinburgh, EH1 1ST",
+    subtitle: "RATED [ S ] : EXCLUSIVELY FOR SARA SEÑORITA. Contains excessive Yearn and 100% unconditional love.",
     art: ART.RATING_CERT
   });
 
@@ -298,7 +298,7 @@ async function runAct0() {
 async function runAct1() {
   playDramaticBwaam();
   shakeScreen();
-  speakNarrator("Sara is on shift at Safestay Hostels. Kieran walks in and turns on the charm.");
+  speakNarrator("Sara is on shift at Safestay Hostels. Kieran walks in and instantly falls in love.");
 
   renderScene({
     location: "SAFESTAY HOSTELS - RECEPTION",
@@ -312,8 +312,8 @@ async function runAct1() {
 
   renderScene({
     location: "SAFESTAY HOSTELS - RECEPTION",
-    speaker: "KIERAN (LEANING OVER DESK)",
-    subtitle: "'Hey Sara... working hard or hardly working? Stop checking guests in for a second and look at me. You look stunning today, Señorita.'",
+    speaker: "KIERANS EYES DILATE LOOKING AT SARA",
+    subtitle: "'Hey Sara Stop texting your mid bf for a sec and look at me. You look stunning today, Señorita.'",
     heartMeter: 40,
     art: ART.SAFESTAY_HOSTEL
   });
@@ -324,8 +324,8 @@ async function runAct1() {
   let picked = null;
   while (picked !== "1") {
     picked = await waitForKeyOrButton([
-      { key: "1", label: "Choose Kieran (The Safestay Legend)" },
-      { key: "2", label: "Stick with current boyfriend" }
+      { key: "1", label: "Choose Kieran (6ft 3)" },
+      { key: "2", label: "Stick with current boyfriend (Mid)" }
     ], "SARA'S CHOICE: Who do you pick?");
 
     if (picked === "2") {
@@ -333,8 +333,8 @@ async function runAct1() {
       shakeScreen();
       renderScene({
         location: "SAFESTAY HOSTELS - REALITY CHECK",
-        speaker: "KIERAN (GRINNING CONFIDENTLY)",
-        subtitle: "'Nice try Sara! But does your boyfriend build you whole movie cinemas and make you laugh like this?! Pick the right answer, spicy Señorita!'",
+        speaker: "KIERAN (Laughing)",
+        subtitle: "'Nice try Sara, why don't your try ther other answer?'",
         heartMeter: 38,
         art: ART.SAFESTAY_HOSTEL
       });
@@ -348,7 +348,7 @@ async function runAct1() {
   renderScene({
     location: "SAFESTAY HOSTELS - CRITICAL HIT",
     speaker: "KIERAN (BEAMING WITH JOY)",
-    subtitle: "'I knew you had elite taste, Sara Señorita! Grab your coat, clock out early—we are going on the ultimate date!'",
+    subtitle: "'I knew you had elite taste, Sara Señorita! Grab your coat, clock out early—we are going on our first date!'",
     heartMeter: 55,
     art: ART.SAFESTAY_HOSTEL
   });
@@ -362,9 +362,9 @@ async function runAct2() {
   shakeScreen();
 
   renderScene({
-    location: "ODEON VIP CINEMA - WITH KIERAN",
+    location: "VIP CINEMA - WITH KIERAN",
     speaker: "SARA'S PERSPECTIVE",
-    subtitle: "You and Kieran arrive at the cinema with giant buckets of popcorn to watch SPIDER-MAN: NO WAY HOME!",
+    subtitle: "You and Kieran arrive at the cinema with giant buckets of popcorn to watch SPIDER-MAN: NO WAY HOME! (he stalked your socials to see what you liked)",
     heartMeter: 60,
     art: ART.SPIDERMAN_CINEMA
   });
@@ -373,9 +373,9 @@ async function runAct2() {
 
   renderScene({
     location: "ODEON VIP CINEMA - WITH KIERAN",
-    speaker: "KIERAN (PASSING THE POPCORN)",
-    subtitle: "'Alright Sara, we're in the cinema! Which legendary scene from No Way Home are we watching first?!'",
-    heartMeter: 65,
+    speaker: "KIERAN (PASSING THE POPCORN TO HIS PRINCESS)",
+    subtitle: "'Alright Sara, we're in the cinema! Scene are we watching first i'LL be watching you the entire time?'",
+    heartMeter: 69,
     art: ART.SPIDERMAN_CINEMA
   });
 
@@ -383,7 +383,7 @@ async function runAct2() {
     { key: "1", label: "The Rooftop Introduction (Peter 1, 2 & 3 meet)" },
     { key: "2", label: "The Science Lab Bonding Moment" },
     { key: "3", label: "The Final Battle at Statue of Liberty" }
-  ], "Which Spider-Man scene do you choose?");
+  ], "Which Spider-Man scene do you choose babe?");
 
   playSuccessChime();
 
@@ -423,7 +423,7 @@ async function runAct3() {
   renderScene({
     location: "SAFESTAY CANDLELIT LOUNGE",
     speaker: "SARA'S PERSPECTIVE",
-    subtitle: "After saving the multiverse, Kieran takes you to a romantic dinner table set with glowing candles and soft music.",
+    subtitle: "After yearning at teh cinema, Kieran takes you to a romantic safestay table set with glowing candles and soft spanish music.",
     heartMeter: 80,
     art: ART.DINNER_DATE
   });
@@ -432,16 +432,16 @@ async function runAct3() {
 
   renderScene({
     location: "SAFESTAY CANDLELIT LOUNGE",
-    speaker: "KIERAN (LOOKING AT SARA)",
-    subtitle: "'Spider-Man was legendary, but saving the world works up an appetite! What is Sara the spicy Señorita craving tonight?'",
+    speaker: "KIERAN (LOOKING AT SARA HUNGRY)",
+    subtitle: "'Spider-Man was cool, but staring at the LOML works up an appetite! What is Sara the spicy Señorita craving tonight?'",
     heartMeter: 85,
     art: ART.DINNER_DATE
   });
 
   const foodChoice = await waitForKeyOrButton([
-    { key: "1", label: "Safestay Pizza (Classic Comfort)" },
-    { key: "2", label: "Safestay Pain au Chocolat (Fresh & Flaky)" },
-    { key: "3", label: "Authentic Spanish Tapas (Spicy Señorita Choice)" }
+    { key: "1", label: "Safestay Pizza (With extra love)" },
+    { key: "2", label: "Safestay Pain au Chocolat (Stale and Crusty)" },
+    { key: "3", label: "Authentic Spanish Tapas (Spicy Señorita Special)" }
   ], "What do you want to eat for dinner?");
 
   playSuccessChime();
@@ -450,7 +450,7 @@ async function runAct3() {
     renderScene({
       location: "SAFESTAY CANDLELIT LOUNGE",
       speaker: "KIERAN (GRINNING WITH A SLICE)",
-      subtitle: "'Sizzling hot Safestay Pizza! Nothing hits better after a long shift. You make even hostel pizza taste like a Michelin 3-star feast, Sara!'",
+      subtitle: "'Fuck the pizza, can i eat you instead?'",
       heartMeter: 90,
       art: ART.DINNER_DATE
     });
@@ -458,7 +458,7 @@ async function runAct3() {
     renderScene({
       location: "SAFESTAY CANDLELIT LOUNGE",
       speaker: "KIERAN (SERVING THE BAKERY BASKET)",
-      subtitle: "'Fresh, warm, flaky Safestay Pain au Chocolat! Rich melted chocolate for the sweetest girl in the universe!'",
+      subtitle: "'Warm and yummy, just like her'",
       heartMeter: 90,
       art: ART.DINNER_DATE
     });
@@ -466,7 +466,7 @@ async function runAct3() {
     renderScene({
       location: "SAFESTAY CANDLELIT LOUNGE",
       speaker: "KIERAN (RAISING A GLASS OF SANGRIA)",
-      subtitle: "'¡Salud, Sara Señorita! Sizzling gambas al ajillo, jamón ibérico, and patatas bravas! The spicy Spanish feast you deserve!'",
+      subtitle: "'I love the taste of Spain and I'm not talking about the food '",
       heartMeter: 95,
       art: ART.DINNER_DATE
     });
@@ -482,7 +482,7 @@ async function runAct4() {
   renderScene({
     location: "SAFESTAY ROOFTOP - UNDER THE STARS",
     speaker: "SARA'S PERSPECTIVE",
-    subtitle: "You and Kieran stand on the Safestay rooftop under a canopy of stars. The city breeze is warm and peaceful.",
+    subtitle: "You and Kieran stand on the Safestay rooftop under a canopy of stars. The screams from 3 sisters are in the distance",
     heartMeter: 96,
     art: ART.ROOFTOP_FINALE
   });
@@ -491,8 +491,8 @@ async function runAct4() {
 
   renderScene({
     location: "SAFESTAY ROOFTOP - UNDER THE STARS",
-    speaker: "KIERAN (TAKING SARA'S HAND)",
-    subtitle: "'Sara, tonight has been unforgettable. You make every day brighter. There is only one final thing left to decide...'",
+    speaker: "KIERAN (LONGING FOR SARA)",
+    subtitle: "'Sara, tonight has been unforgettable. I've been in love with you for a year, I've just been too nervous to tell you..'",
     heartMeter: 98,
     art: ART.ROOFTOP_FINALE
   });
@@ -501,9 +501,9 @@ async function runAct4() {
 
   // The Final Choice
   const finalChoice = await waitForKeyOrButton([
-    { key: "1", label: "Break up with current boyfriend officially" },
-    { key: "2", label: "Confess your undying love to Kieran" },
-    { key: "3", label: "Propose to Kieran on the spot!" }
+    { key: "1", label: "Break up with current boyfriend officially (are you genuinely close? I'll wait)" },
+    { key: "2", label: "Confess your undying love to Kieran (this might be dangerous!)" },
+    { key: "3", label: "Propose to Kieran on the spot! (he's gonna love this)" }
   ], "SARA'S FINAL CHOICE:");
 
   // Celebration
@@ -514,7 +514,7 @@ async function runAct4() {
     renderScene({
       location: "SAFESTAY ROOFTOP - THE BREAKUP TEXT SENT",
       speaker: "KIERAN (PUMPING HIS FIST IN THE AIR)",
-      subtitle: "'HE IS HISTORY! The text is sent and you are officially free! Welcome to the happiest chapter of your life, Sara Señorita!'",
+      subtitle: "'HE IS HISTORY! The text is sent and you are officially free! Kieran has been dreaming of this for a year, but he was too nervous to tell you.. Sara Señorita!'",
       heartMeter: 1000000,
       art: ART.HEART_FIREWORKS
     });
@@ -522,7 +522,7 @@ async function runAct4() {
     renderScene({
       location: "SAFESTAY ROOFTOP - LOVE CONFESSION",
       speaker: "KIERAN (MELTING IN SARA'S EYES)",
-      subtitle: "'You love me?! Sara, I love you more than all the stars above Safestay! You are my everything!'",
+      subtitle: "'You love me?! Sara, I've been in love with you since I saw your name for the interview and I looked your name up?''",
       heartMeter: 1000000,
       art: ART.HEART_FIREWORKS
     });
@@ -530,7 +530,7 @@ async function runAct4() {
     renderScene({
       location: "SAFESTAY ROOFTOP - THE PROPOSAL!",
       speaker: "KIERAN (CRYING TEARS OF PURE JOY)",
-      subtitle: "'¡¡¡SÍ!!! A MILLION TIMES YES!! KIERAN & SARA RODRIGUEZ FOREVER AND ALWAYS!!'",
+      subtitle: "'¡¡¡SÍ!!! A MILLION TIMES YES!! SARA PLEASE BE MY GIRLFRIEND?'",
       heartMeter: 1000000,
       art: ART.HEART_FIREWORKS
     });
@@ -542,7 +542,7 @@ async function runAct4() {
   let finalHtml = terminalOutput.innerHTML + '\n\n';
   finalHtml += padCenter('<span class="ansi-gold" style="font-size:16px;">★ ★ ★ MISSION ACCOMPLISHED: SARA CHOSE KIERAN! ★ ★ ★</span>') + '\n\n';
   finalHtml += padCenter('<span class="ansi-rose">Kieran + Sara the Spicy Señorita = Match Made in Heaven.</span>') + '\n';
-  finalHtml += padCenter('<span class="ansi-saffron">Screenshot this screen right now and send it to Kieran! 😉</span>') + '\n\n';
+  finalHtml += padCenter('<span class="ansi-saffron">Every shift I yearn for you! 😉</span>') + '\n\n';
   terminalOutput.innerHTML = finalHtml;
 
   await waitForKeyPress("Press [SPACE] or tap Continue to Roll End Credits...");
@@ -553,14 +553,14 @@ async function runAct4() {
   creditsHtml += padCenter('<span class="ansi-gold">═══════════════════════════════════════════════════════════</span>') + '\n\n';
 
   const credits = [
-    ["STARRING", "Sara (The Spicy Señorita)"],
-    ["CO-STARRING & DIRECTOR", "Kieran (The Safestay Flirt)"],
+    ["STARRING", "Sara (She is so fucking sexy)"],
+    ["CO-STARRING & DIRECTOR", "Kieran (Tall dark and handsome)"],
     ["HEADQUARTERS", "Safestay Hostels"],
     ["FEATURE PRESENTATION", "Spider-Man: No Way Home"],
     ["CULINARY MENU", "Safestay Pizza, Pain au Chocolat & Tapas"],
-    ["PRODUCTION BUDGET", "800 lines of code & 100% genuine love"],
+    ["PRODUCTION BUDGET", "3 shifts this week"],
     ["CHANCE OF ETERNAL HAPPINESS", "100.0%"],
-    ["NEXT EPISODE", "Kieran & Sara Living Happily Ever After!"]
+    ["NEXT EPISODE", "Released when you break up with your boyfriend"]
   ];
 
   credits.forEach(([role, name]) => {
