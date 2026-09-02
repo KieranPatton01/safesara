@@ -60,21 +60,10 @@ function waitForKeyOrButton(options, promptText = 'Press key or tap an option:')
       }
     }));
 
-    // Add secret cheat code button
-    buttons.push({
-      label: '🍫 Secret Churros',
-      className: 'btn-secret',
-      onClick: () => triggerSecretChurros()
-    });
-
     updateToolbar(buttons, promptText);
 
     const keyListener = (e) => {
       const pressed = e.key.toUpperCase();
-      if (pressed === 'S' || pressed === 'T') {
-        triggerSecretChurros();
-        return;
-      }
       const match = options.find(
         (o) => o.key.toUpperCase() === pressed || (o.key === 'SPACE' && e.code === 'Space') || (o.key === 'ENTER' && e.code === 'Enter')
       );
@@ -98,22 +87,6 @@ function waitForKeyPress(promptMsg = 'Press [SPACE] or tap Continue to proceed..
   return waitForKeyOrButton([
     { key: 'SPACE', label: '▶ Continue' }
   ], promptMsg);
-}
-
-function triggerSecretChurros() {
-  playSuccessChime();
-  const alertBanner = document.createElement('div');
-  alertBanner.style.cssText = `
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    background: linear-gradient(90deg, #ec4899, #f59e0b); color: #fff;
-    padding: 12px 24px; border-radius: 9999px; font-weight: 700;
-    box-shadow: 0 0 25px rgba(245, 158, 11, 0.6); z-index: 999;
-    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px;
-    animation: fadeIn 0.3s ease;
-  `;
-  alertBanner.textContent = '🍫 SECRET UNLOCKED: Unlimited Hot Chocolate, Pain au Chocolat & Tapas for Sara! ✨';
-  document.body.appendChild(alertBanner);
-  setTimeout(() => alertBanner.remove(), 3500);
 }
 
 // Center string helper
