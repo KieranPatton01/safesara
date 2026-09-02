@@ -62,7 +62,7 @@ function waitForKeyOrButton(options, promptText = 'Press key or tap an option:')
 
     // Add secret cheat code button
     buttons.push({
-      label: '🍫 Secret Code',
+      label: '🍫 Secret Churros',
       className: 'btn-secret',
       onClick: () => triggerSecretChurros()
     });
@@ -111,7 +111,7 @@ function triggerSecretChurros() {
     font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px;
     animation: fadeIn 0.3s ease;
   `;
-  alertBanner.textContent = '🍫 SECRET UNLOCKED: Unlimited Hot Chocolate & Churros Granted to Sara! ✨';
+  alertBanner.textContent = '🍫 SECRET UNLOCKED: Unlimited Hot Chocolate, Pain au Chocolat & Tapas for Sara! ✨';
   document.body.appendChild(alertBanner);
   setTimeout(() => alertBanner.remove(), 3500);
 }
@@ -178,7 +178,7 @@ function renderScene({ location = '', speaker = '', subtitle = '', heartMeter = 
     const full = Math.min(10, Math.floor(heartMeter / 10));
     const empty = 10 - full;
     const meterStr = '♥ '.repeat(full) + '♡ '.repeat(empty);
-    html += '\n' + padCenter(`<span class="ansi-rose">SARA ROMANCE METER: [ ${meterStr} ] ${heartMeter}%</span>`) + '\n';
+    html += '\n' + padCenter(`<span class="ansi-rose">SARA SEÑORITA ROMANCE METER: [ ${meterStr} ] ${heartMeter}%</span>`) + '\n';
   }
 
   terminalOutput.innerHTML = html;
@@ -190,9 +190,10 @@ const ART = {
     '<span class="ansi-gold">              ★       *       ★       *       ★       *       ★</span>',
     '<span class="ansi-amber">         *        .     .       .       .       .        .        *</span>',
     '<span class="ansi-rose">      .      ┌─────────────────────────────────────────────┐      .</span>',
-    '<span class="ansi-rose">    ★        │         C O R A Z Ó N   S T U D I O S       │        ★</span>',
-    '<span class="ansi-rose">   *         │          - EL CINE DEL AMOR VERDADERO -     │         *</span>',
-    '<span class="ansi-rose">  .          └─────────────────────────────────────────────┘          .</span>',
+    '<span class="ansi-rose">    ★        │              S A R A   S T U D I O S        │        ★</span>',
+    '<span class="ansi-rose">   *         │     - A MOTION PICTURE EXCLUSIVELY FOR -    │         *</span>',
+    '<span class="ansi-rose">  .          │           SARA THE SPICY SEÑORITA           │          .</span>',
+    '<span class="ansi-rose">             └─────────────────────────────────────────────┘</span>',
     '<span class="ansi-amber">         *         /\\                  /\\                  /\\         *</span>',
     '<span class="ansi-gold">              *   /  \\      /\\        /  \\        /\\      /  \\   *</span>',
     '<span class="ansi-saffron">                 / /\\ \\    /  \\  ♥   / /\\ \\  ♥   /  \\    / /\\ \\</span>',
@@ -202,92 +203,61 @@ const ART = {
 
   RATING_CERT: [
     '<span class="ansi-saffron">   ╔═══════════════════════════════════════════════════════════════════════╗</span>',
-    '<span class="ansi-saffron">   ║</span>  <span class="ansi-gold">THE OFFICIAL WORLD ROMANCE &amp; TAPAS BOARD DECLARES:</span>                 <span class="ansi-saffron">║</span>',
+    '<span class="ansi-saffron">   ║</span>  <span class="ansi-gold">THE OFFICIAL WORLD ROMANCE &amp; DRAMA BOARD DECLARES:</span>                 <span class="ansi-saffron">║</span>',
     '<span class="ansi-saffron">   ║                                                                       ║</span>',
-    '<span class="ansi-saffron">   ║</span>   <span class="ansi-crimson">█████████</span>   <span class="ansi-white">RATED [ S ] : EXCLUSIVELY FOR SARA</span>                      <span class="ansi-saffron">║</span>',
+    '<span class="ansi-saffron">   ║</span>   <span class="ansi-crimson">█████████</span>   <span class="ansi-white">RATED [ S ] : EXCLUSIVELY FOR SARA SEÑORITA</span>             <span class="ansi-saffron">║</span>',
     '<span class="ansi-saffron">   ║</span>   <span class="ansi-crimson">███     █</span>                                                           <span class="ansi-saffron">║</span>',
     '<span class="ansi-saffron">   ║</span>   <span class="ansi-crimson">█████████</span>   <span class="ansi-rose">CONTAINS: Extreme levels of cheesiness,</span>                 <span class="ansi-saffron">║</span>',
-    '<span class="ansi-saffron">   ║</span>   <span class="ansi-crimson">      ███</span>   <span class="ansi-rose">uncontrolled cravings for Spanish tapas,</span>                <span class="ansi-saffron">║</span>',
+    '<span class="ansi-saffron">   ║</span>   <span class="ansi-crimson">      ███</span>   <span class="ansi-rose">uncontrolled cravings for Sara Señorita,</span>                <span class="ansi-saffron">║</span>',
     '<span class="ansi-saffron">   ║</span>   <span class="ansi-crimson">█████████</span>   <span class="ansi-rose">and 100% genuine unconditional adoration.</span>               <span class="ansi-saffron">║</span>',
     '<span class="ansi-saffron">   ║                                                                       ║</span>',
     '<span class="ansi-saffron">   ╚═══════════════════════════════════════════════════════════════════════╝</span>'
   ],
 
-  MADRID_SKYLINE: [
-    '<span class="ansi-nightsky">  .  *       .       ★        .      *        .       ★      .      *  .</span>',
-    '<span class="ansi-gold">              *                .            *                .          </span>',
-    '<span class="ansi-darkgray">                |                     |                                 </span>',
-    '<span class="ansi-amber">               / \\                   / \\             ( )  M O O N       </span>',
-    '<span class="ansi-amber">              / _ \\                 / _ \\                               </span>',
-    '<span class="ansi-darkgray">             | (o) |               |  |  |               .     *    .   </span>',
-    '<span class="ansi-darkgray">          ___|_____|___         ___|__|__|___       _______________     </span>',
-    '<span class="ansi-darkgray">         |  _   _   _  |       |  _   _   _  |     |  _   _   _   _|    </span>',
-    '<span class="ansi-saffron">   [MADRID GRAN VÍA]   |       |  | | | | |  |     | [BAR CHURRERÍA] |    </span>',
-    '<span class="ansi-darkgray">         | |_| |_| |_| |       | |_| |_| |_| |     | |_| |_| |_| |_| |    </span>',
-    '<span class="ansi-gray">     ════╧═════════════╧═══════╧═════════════╧═════╧═════════════════╧════ </span>'
+  SAFESTAY_HOSTEL: [
+    '<span class="ansi-amber">       .-------------------------------------------------------------.     </span>',
+    '<span class="ansi-gold">       |     [★]  S A F E S T A Y   H O S T E L S   L O U N G E  [★]  |     </span>',
+    '<span class="ansi-amber">       \'-------------------------------------------------------------\'     </span>',
+    '<span class="ansi-darkgray">        |   [FRONT DESK]                     [KEYCARDS] [RECEPTION BELL] | </span>',
+    '<span class="ansi-saffron">        |   ┌───────────────┐                  ┌──┐       (o)           | </span>',
+    '<span class="ansi-rose">        |   │ SARA (On Duty)│                  │░░│      / | \\          | </span>',
+    '<span class="ansi-saffron">        |   │ Looking Spicy │   KIERAN FLIRTS  └──┘     /  |  \\  KIERAN | </span>',
+    '<span class="ansi-gold">        |   └───────────────┘   ────────────&gt;          (_______) SMILES | </span>',
+    '<span class="ansi-darkgray">     ═══╧═══════════════════════════════════════════════════════════════╧══ </span>'
   ],
 
-  PINTXOS_BAR: [
-    '<span class="ansi-amber">           .---.                                        .---.           </span>',
-    '<span class="ansi-amber">          /     \\     [ TABERNA DONOSTIA ]             /     \\          </span>',
-    '<span class="ansi-darkgray">     =====\'=====\'======================================\'=====\'=====     </span>',
-    '<span class="ansi-crimson">          _   _     __      __                                          </span>',
-    '<span class="ansi-crimson">         / \\_/ \\   / /     / /       [ LEGENDARY JAMÓN IBÉRICO 5 JOTAS] </span>',
-    '<span class="ansi-rose">        |       | / /  ♥  / /         (¯`·. Sliced with Love .·´¯)      </span>',
-    '<span class="ansi-amber">     ---\'-------\'--/-----/-----------------------------------------     </span>',
-    '<span class="ansi-olive">       🍢 Gilda Skewers    🥟 Croquetas de Jamón    🍤 Gambas al Ajillo </span>',
-    '<span class="ansi-gold">       (Olives &amp; Anchovy)   (Crispy &amp; Creamy)        (Sizzling in Oil)  </span>',
-    '<span class="ansi-darkgray">     ══════════════════════════════════════════════════════════════     </span>'
+  SPIDERMAN_CINEMA: [
+    '<span class="ansi-nightsky">    .   *      ★       .       [ ODEON VIP CINEMA ]      .       *      .   </span>',
+    '<span class="ansi-crimson">                 /\\                                /\\                       </span>',
+    '<span class="ansi-crimson">                /  \\                              /  \\                      </span>',
+    '<span class="ansi-white">               / /\\ \\      [ SPIDER-MAN: ]       / /\\ \\                     </span>',
+    '<span class="ansi-white">              / /__\\ \\     [ NO WAY HOME ]      / /__\\ \\                    </span>',
+    '<span class="ansi-sea">             / /====\\ \\    ===============     / /====\\ \\                   </span>',
+    '<span class="ansi-crimson">            /_/      \\_\\   (PETER 1, 2 &amp; 3)   /_/      \\_\\                  </span>',
+    '<span class="ansi-gold">       🍿 POPCORN SHARED   🕷️ WEB SLINGING    🥤 SARA &amp; KIERAN SIDE BY SIDE </span>',
+    '<span class="ansi-darkgray">     ══════════════════════════════════════════════════════════════════════ </span>'
   ],
 
-  SEVILLE_FLAMENCO: [
-    '<span class="ansi-amber">               .---.             [ PLAZA DE ESPAÑA ]                    </span>',
-    '<span class="ansi-amber">              /     \\          /\\     /\\     /\\     /\\                  </span>',
-    '<span class="ansi-darkgray">        _____/_______\\________/__\\___/__\\___/__\\___/__\\______          </span>',
-    '<span class="ansi-crimson">                    (o)                     /\\                          </span>',
-    '<span class="ansi-crimson">                   / | \\    💃             /  \\    [GUITARRA ESPAÑOLA]  </span>',
-    '<span class="ansi-rose">                  /  |  \\  (FLAMENCO!)    / /\\ \\      ||====()          </span>',
-    '<span class="ansi-crimson">                 /___|___\\               / /  \\ \\     ||    ||          </span>',
-    '<span class="ansi-crimson">                 (_______)              /_/    \\_\\   (________)         </span>',
-    '<span class="ansi-amber">           ¡OLÉ! ¡ARZA Y TOMA!       * Flamenco Strum *  ♪ ♫ ♬ ♩        </span>',
-    '<span class="ansi-darkgray">     ══════════════════════════════════════════════════════════════     </span>'
+  DINNER_DATE: [
+    '<span class="ansi-amber">                .--------------------------------------------.              </span>',
+    '<span class="ansi-gold">                |      C A N D L E L I T   D I N N E R       |              </span>',
+    '<span class="ansi-amber">                \'--------------------------------------------\'              </span>',
+    '<span class="ansi-rose">                       (i)  CANDLE LIGHT        🍷 WINE GLASS               </span>',
+    '<span class="ansi-saffron">                 🍕 SAFESTAY PIZZA    🥐 PAIN AU CHOCOLAT                   </span>',
+    '<span class="ansi-crimson">                 🥘 SIZZLING SPANISH TAPAS FOR SARA SEÑORITA                </span>',
+    '<span class="ansi-gold">                 "Best food in town with the best girl in the world"         </span>',
+    '<span class="ansi-darkgray">     ══════════════════════════════════════════════════════════════════════ </span>'
   ],
 
-  PAELLA_VALENCIA: [
-    '<span class="ansi-gold">               ~  ~    ♨  STEAMING AROMA OF SAFFRON  ♨    ~  ~          </span>',
-    '<span class="ansi-saffron">            ~       (Smoked Paprika &amp; Rosemary Rising)       ~          </span>',
-    '<span class="ansi-amber">               .--------------------------------------------.           </span>',
-    '<span class="ansi-amber">        =====(                                                )=====    </span>',
-    '<span class="ansi-saffron">              \\   🦐 Gambas    🍋 Limón     🍗 Pollo   🥘   /            </span>',
-    '<span class="ansi-gold">               \\    🟡 Golden Saffron Calasparra Rice     /             </span>',
-    '<span class="ansi-crimson">                \\     🍅 Tomate Rallado   🌿 Romero      /              </span>',
-    '<span class="ansi-amber">                 \\    🔥 EL SOCARRAT PERFECTO PARA SARA /               </span>',
-    '<span class="ansi-amber">                  \'------------------------------------\'                </span>',
-    '<span class="ansi-darkgray">                      |____|                    |____|                  </span>'
-  ],
-
-  BARCELONA_SUNSET: [
-    '<span class="ansi-rose">    .    *       ★       .        *        ★        .       *       .   </span>',
-    '<span class="ansi-rose">   ~~~~~~~~~~~~~~~~~ [ ATARDECER EN BARCELONA ] ~~~~~~~~~~~~~~~~~       </span>',
+  ROOFTOP_FINALE: [
+    '<span class="ansi-nightsky">    .    *       ★       .        *        ★        .       *       .   </span>',
+    '<span class="ansi-rose">   ~~~~~~~~~~~~~~~~~ [ SAFESTAY ROOFTOP UNDER THE STARS ] ~~~~~~~~~~~~~~ </span>',
     '<span class="ansi-amber">                   .      .         /\\                                  </span>',
-    '<span class="ansi-amber">         PARK     / \\    / \\       /  \\     SAGRADA FAMÍLIA             </span>',
-    '<span class="ansi-rose">        GÜELL    /   \\  /   \\     / /\\ \\    Under Sunset Glow           </span>',
-    '<span class="ansi-amber">       MOSAICS  / /_\\ \\/ /_\\ \\   / /__\\ \\                               </span>',
-    '<span class="ansi-sangria">      _..---.._/_/   \\_\\/   \\_\\_/_/    \\_\\_________________________     </span>',
-    '<span class="ansi-sea">     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~     </span>',
-    '<span class="ansi-sea">     ~~~~ MEDITERRANEAN SEA WHISPERING: \'SARA IS THE ONE\' ~~~~~~~~~~     </span>'
-  ],
-
-  BOARDING_PASS: [
-    '<span class="ansi-gold">  ╔═══════════════════════════════════════════════════════════════════════╗</span>',
-    '<span class="ansi-gold">  ║</span>  <span class="ansi-white">★ FIRST-CLASS VIP BOARDING PASS</span>      <span class="ansi-crimson">PASSENGER: SARA</span>                  <span class="ansi-gold">║</span>',
-    '<span class="ansi-gold">  ╠═══════════════════════════════════════════════════════════════════════╣</span>',
-    '<span class="ansi-gold">  ║</span>  <span class="ansi-white">ORIGIN:</span> Your Favorite Spot       <span class="ansi-white">DESTINATION:</span> Unlimited Tapas Bar   <span class="ansi-gold">║</span>',
-    '<span class="ansi-gold">  ║</span>  <span class="ansi-white">FLIGHT:</span> <span class="ansi-amber">SARA-LUVS-FOOD</span>          <span class="ansi-white">SEAT:</span> <span class="ansi-crimson">1A (VIP Corazón)</span>             <span class="ansi-gold">║</span>',
-    '<span class="ansi-gold">  ║</span>  <span class="ansi-white">DATE:</span> Any Evening You Wish     <span class="ansi-white">STATUS:</span> <span class="ansi-saffron">AWAITING HER \'SÍ\' 💖</span>       <span class="ansi-gold">║</span>',
-    '<span class="ansi-gold">  ╠═══════════════════════════════════════════════════════════════════════╣</span>',
-    '<span class="ansi-gold">  ║</span>  <span class="ansi-rose">INCLUDES: Fresh Paella, Hot Churros con Chocolate &amp; Endless Laughs</span>   <span class="ansi-gold">║</span>',
-    '<span class="ansi-gold">  ╚═══════════════════════════════════════════════════════════════════════╝</span>'
+    '<span class="ansi-gold">                 KIERAN &amp; SARA    /  \\     THE MULTIVERSE               </span>',
+    '<span class="ansi-rose">                HAND IN HAND     / /\\ \\    OF TRUE LOVE                 </span>',
+    '<span class="ansi-amber">                UNDER THE MOON  / /__\\ \\                                </span>',
+    '<span class="ansi-rose">                ♥ "Sara Señorita, you are the one" ♥                    </span>',
+    '<span class="ansi-darkgray">     ══════════════════════════════════════════════════════════════════════ </span>'
   ],
 
   HEART_FIREWORKS: [
@@ -306,19 +276,19 @@ const ART = {
 
 async function runAct0() {
   playFanfare();
-  speakNarrator("Corazón Studios presents... a command line motion picture... exclusively for Sara.");
+  speakNarrator("Sara Studios presents a motion picture exclusively for Sara the spicy Señorita");
 
   renderScene({
-    location: "HOLLYWOOD DE VALENCIA",
-    subtitle: "CORAZÓN STUDIOS PRESENTS: A CINEMATIC MASTERPIECE PRODUCED FOR ONE VERY SPECIAL GIRL...",
+    location: "SARA STUDIOS HEADQUARTERS",
+    subtitle: "SARA STUDIOS PRESENTS: A MOTION PICTURE EXCLUSIVELY FOR SARA THE SPICY SEÑORITA",
     art: ART.STUDIO_LOGO
   });
 
-  await sleep(1500);
+  await sleep(1800);
 
   renderScene({
-    location: "MINISTRY OF ROMANCE & TAPAS",
-    subtitle: "RATED [ S ] : FOR SARA ONLY. Contains excessive romance, Spanish food cravings, and 100% unconditional love.",
+    location: "MINISTRY OF ROMANCE & DRAMA",
+    subtitle: "RATED [ S ] : EXCLUSIVELY FOR SARA SEÑORITA. Contains excessive romance, Safestay banter, and 100% unconditional love.",
     art: ART.RATING_CERT
   });
 
@@ -328,289 +298,251 @@ async function runAct0() {
 async function runAct1() {
   playDramaticBwaam();
   shakeScreen();
-  speakNarrator("In a world of boring text messages... one man dared to build an entire cinema in command line... for Sara.");
+  speakNarrator("Sara is on shift at Safestay Hostels. Kieran walks in and turns on the charm.");
 
   renderScene({
-    location: "MADRID - GRAN VÍA (MIDNIGHT)",
-    speaker: "CINEMATIC TRAILER NARRATOR",
-    subtitle: "IN A WORLD... of boring, low-effort text messages...",
-    heartMeter: 25,
-    art: ART.MADRID_SKYLINE
+    location: "SAFESTAY HOSTELS - RECEPTION",
+    speaker: "SARA'S PERSPECTIVE",
+    subtitle: "You (Sara) are working another busy shift at Safestay Hostels... looking radiant and effortlessly spicy as always.",
+    heartMeter: 30,
+    art: ART.SAFESTAY_HOSTEL
   });
 
   await sleep(2200);
 
   renderScene({
-    location: "MADRID - GRAN VÍA (MIDNIGHT)",
-    speaker: "CINEMATIC TRAILER NARRATOR",
-    subtitle: "One developer refused to send a simple 'Hey, what's up?'... and chose to write an entire Hollywood blockbuster.",
-    heartMeter: 30,
-    art: ART.MADRID_SKYLINE
+    location: "SAFESTAY HOSTELS - RECEPTION",
+    speaker: "KIERAN (LEANING OVER DESK)",
+    subtitle: "'Hey Sara... working hard or hardly working? Stop checking guests in for a second and look at me. You look stunning today, Señorita.'",
+    heartMeter: 40,
+    art: ART.SAFESTAY_HOSTEL
   });
 
-  await sleep(2400);
+  await sleep(2000);
 
+  // The Big Decision: Kieran vs Current Boyfriend
+  let picked = null;
+  while (picked !== "1") {
+    picked = await waitForKeyOrButton([
+      { key: "1", label: "Choose Kieran (The Safestay Legend)" },
+      { key: "2", label: "Stick with current boyfriend" }
+    ], "SARA'S CHOICE: Who do you pick?");
+
+    if (picked === "2") {
+      playDramaticBwaam();
+      shakeScreen();
+      renderScene({
+        location: "SAFESTAY HOSTELS - REALITY CHECK",
+        speaker: "KIERAN (GRINNING CONFIDENTLY)",
+        subtitle: "'Nice try Sara! But does your boyfriend build you whole movie cinemas and make you laugh like this?! Pick the right answer, spicy Señorita!'",
+        heartMeter: 38,
+        art: ART.SAFESTAY_HOSTEL
+      });
+      await sleep(2200);
+    }
+  }
+
+  playSuccessChime();
+  speakNarrator("Sara chooses Kieran! The spark is undeniable.");
+
+  renderScene({
+    location: "SAFESTAY HOSTELS - CRITICAL HIT",
+    speaker: "KIERAN (BEAMING WITH JOY)",
+    subtitle: "'I knew you had elite taste, Sara Señorita! Grab your coat, clock out early—we are going on the ultimate date!'",
+    heartMeter: 55,
+    art: ART.SAFESTAY_HOSTEL
+  });
+
+  await sleep(2200);
+  await waitForKeyPress("Press [SPACE] to Head to the Cinema with Kieran...");
+}
+
+async function runAct2() {
   playDramaticBwaam();
   shakeScreen();
 
   renderScene({
-    location: "MADRID - GRAN VÍA (MIDNIGHT)",
-    speaker: "CINEMATIC TRAILER NARRATOR",
-    subtitle: "HER NAME: SARA. Her superpower: Looking breathtaking and appreciating elite Spanish food.",
-    heartMeter: 35,
-    art: ART.MADRID_SKYLINE
+    location: "ODEON VIP CINEMA - WITH KIERAN",
+    speaker: "SARA'S PERSPECTIVE",
+    subtitle: "You and Kieran arrive at the cinema with giant buckets of popcorn to watch SPIDER-MAN: NO WAY HOME!",
+    heartMeter: 60,
+    art: ART.SPIDERMAN_CINEMA
   });
 
-  await sleep(2400);
+  await sleep(2000);
 
   renderScene({
-    location: "MADRID - GRAN VÍA (MIDNIGHT)",
-    speaker: "THE MISSION ALERT",
-    subtitle: "ALERT: The legendary 'Receta del Amor' has been scattered across Spain! Sara must help recover it!",
-    heartMeter: 40,
-    art: ART.MADRID_SKYLINE
+    location: "ODEON VIP CINEMA - WITH KIERAN",
+    speaker: "KIERAN (PASSING THE POPCORN)",
+    subtitle: "'Alright Sara, we're in the cinema! Which legendary scene from No Way Home are we watching first?!'",
+    heartMeter: 65,
+    art: ART.SPIDERMAN_CINEMA
   });
 
-  await waitForKeyPress("Press [SPACE] to Board the High-Speed Train to San Sebastián...");
-}
+  const sceneChoice = await waitForKeyOrButton([
+    { key: "1", label: "The Rooftop Introduction (Peter 1, 2 & 3 meet)" },
+    { key: "2", label: "The Science Lab Bonding Moment" },
+    { key: "3", label: "The Final Battle at Statue of Liberty" }
+  ], "Which Spider-Man scene do you choose?");
 
-async function runAct2() {
-  renderScene({
-    location: "SAN SEBASTIÁN - TABERNA DONOSTIA",
-    speaker: "MISSION BRIEFING",
-    subtitle: "Objective 1: Secure the 5-Jotas Jamón Ibérico and Crispy Croquetas from Master Chef Don Ignacio.",
-    heartMeter: 45,
-    art: ART.PINTXOS_BAR
-  });
+  playSuccessChime();
 
-  await sleep(1800);
-
-  renderScene({
-    location: "SAN SEBASTIÁN - TABERNA DONOSTIA",
-    speaker: "MASTER CHEF IGNACIO",
-    subtitle: "'Nobody touches my 5-Jotas Jamón unless they prove their worthy devotion! Who are you cooking for?!'",
-    heartMeter: 45,
-    art: ART.PINTXOS_BAR
-  });
-
-  const choice = await waitForKeyOrButton([
-    { key: "1", label: "Speak broken tourist Spanish" },
-    { key: "2", label: "Offer life savings & computer" },
-    { key: "3", label: "Say: 'This is for SARA'" }
-  ], "How do you convince Chef Ignacio?");
-
-  if (choice === "1") {
+  if (sceneChoice === "1") {
     renderScene({
-      location: "SAN SEBASTIÁN - TABERNA DONOSTIA",
-      speaker: "CHEF IGNACIO (LAUGHING TEARS)",
-      subtitle: "'¡Madre mía! Your Spanish accent is an absolute disaster! But your bravery warms my Basque heart! Take the croquetas!'",
-      heartMeter: 60,
-      art: ART.PINTXOS_BAR
+      location: "ODEON VIP CINEMA - THE ROOFTOP",
+      speaker: "KIERAN & SARA QUOTING IN UNISON",
+      subtitle: "'Ned opens the portal! Andrew Garfield leaps in, Tobey appears, and the Peters point at each other! Kieran whispers: You're my MJ, Sara.'",
+      heartMeter: 75,
+      art: ART.SPIDERMAN_CINEMA
     });
-  } else if (choice === "2") {
+  } else if (sceneChoice === "2") {
     renderScene({
-      location: "SAN SEBASTIÁN - TABERNA DONOSTIA",
-      speaker: "CHEF IGNACIO",
-      subtitle: "'A computer?! Can I dip a keyboard in olive oil?! No! But I hear the name SARA in your heart... Take the tapas!'",
-      heartMeter: 60,
-      art: ART.PINTXOS_BAR
+      location: "ODEON VIP CINEMA - SCIENCE LAB",
+      speaker: "KIERAN (LAUGHING WITH SARA)",
+      subtitle: "'I\\'m something of a scientist myself!' Peter 2 cracks Peter 3's back. Kieran whispers: 'Our chemistry is 100x stronger than this whole lab, Sara!'",
+      heartMeter: 75,
+      art: ART.SPIDERMAN_CINEMA
     });
   } else {
     renderScene({
-      location: "SAN SEBASTIÁN - TABERNA DONOSTIA",
-      speaker: "CHEF IGNACIO (GASPS IN AWE)",
-      subtitle: "'¡¿PARA SARA?! Why didn't you say so?! Take the entire ham! Take the croquetas! Take the restaurant keys!'",
-      heartMeter: 70,
-      art: ART.PINTXOS_BAR
+      location: "ODEON VIP CINEMA - THE FINAL BATTLE",
+      speaker: "KIERAN & SARA CHEERING",
+      subtitle: "'All three Spider-Men swing together over the Statue of Liberty! Epic multiverse teamwork! Kieran holds your hand during the climax.'",
+      heartMeter: 80,
+      art: ART.SPIDERMAN_CINEMA
     });
   }
 
-  playSuccessChime();
-  speakNarrator("Chef Ignacio surrenders the golden Jamón for Sara.");
-  await sleep(2200);
-
-  await waitForKeyPress("Press [SPACE] to Sprint South to Seville for the Flamenco Duel...");
+  await sleep(2400);
+  await waitForKeyPress("Press [SPACE] to go on the Dinner Date with Kieran...");
 }
 
 async function runAct3() {
   playFlamencoStrum();
 
   renderScene({
-    location: "SEVILLE - PLAZA DE ESPAÑA",
-    speaker: "CINEMATIC NARRATOR",
-    subtitle: "The warm night air in Seville smells of orange blossoms and acoustic Spanish guitar passion...",
-    heartMeter: 75,
-    art: ART.SEVILLE_FLAMENCO
-  });
-
-  await sleep(2000);
-  speakNarrator("Welcome to Seville. Only those with true passion can dance the flamenco for Sara.");
-
-  renderScene({
-    location: "SEVILLE - PLAZA DE ESPAÑA",
-    speaker: "EL BAILAOR DE TRIANA",
-    subtitle: "'You seek the Andalusian Paprika of True Love! Only someone dancing with Sara in their soul can handle this!'",
+    location: "SAFESTAY CANDLELIT LOUNGE",
+    speaker: "SARA'S PERSPECTIVE",
+    subtitle: "After saving the multiverse, Kieran takes you to a romantic dinner table set with glowing candles and soft music.",
     heartMeter: 80,
-    art: ART.SEVILLE_FLAMENCO
-  });
-
-  await sleep(1500);
-
-  // Rhythm Challenge
-  await waitForKeyOrButton([
-    { key: "SPACE", label: "💃 TAP HERE ON '¡OLÉ!'" }
-  ], "QUICK-TIME CHALLENGE: Tap button or press SPACE on '¡OLÉ!'");
-
-  playFlamencoStrum();
-
-  renderScene({
-    location: "SEVILLE - PLAZA DE ESPAÑA",
-    speaker: "THE ENTIRE PLAZA DE ESPAÑA",
-    subtitle: "¡¡¡PERFECTION!!! 10/10 STYLE POINTS! The Andalusian Paprika & Sweet Hot Churros are yours!",
-    heartMeter: 88,
-    art: ART.SEVILLE_FLAMENCO
+    art: ART.DINNER_DATE
   });
 
   await sleep(2000);
-  await waitForKeyPress("Press [SPACE] to Rush to Valencia for the Grand Paella Climax...");
+
+  renderScene({
+    location: "SAFESTAY CANDLELIT LOUNGE",
+    speaker: "KIERAN (LOOKING AT SARA)",
+    subtitle: "'Spider-Man was legendary, but saving the world works up an appetite! What is Sara the spicy Señorita craving tonight?'",
+    heartMeter: 85,
+    art: ART.DINNER_DATE
+  });
+
+  const foodChoice = await waitForKeyOrButton([
+    { key: "1", label: "Safestay Pizza (Classic Comfort)" },
+    { key: "2", label: "Safestay Pain au Chocolat (Fresh & Flaky)" },
+    { key: "3", label: "Authentic Spanish Tapas (Spicy Señorita Choice)" }
+  ], "What do you want to eat for dinner?");
+
+  playSuccessChime();
+
+  if (foodChoice === "1") {
+    renderScene({
+      location: "SAFESTAY CANDLELIT LOUNGE",
+      speaker: "KIERAN (GRINNING WITH A SLICE)",
+      subtitle: "'Sizzling hot Safestay Pizza! Nothing hits better after a long shift. You make even hostel pizza taste like a Michelin 3-star feast, Sara!'",
+      heartMeter: 90,
+      art: ART.DINNER_DATE
+    });
+  } else if (foodChoice === "2") {
+    renderScene({
+      location: "SAFESTAY CANDLELIT LOUNGE",
+      speaker: "KIERAN (SERVING THE BAKERY BASKET)",
+      subtitle: "'Fresh, warm, flaky Safestay Pain au Chocolat! Rich melted chocolate for the sweetest girl in the universe!'",
+      heartMeter: 90,
+      art: ART.DINNER_DATE
+    });
+  } else {
+    renderScene({
+      location: "SAFESTAY CANDLELIT LOUNGE",
+      speaker: "KIERAN (RAISING A GLASS OF SANGRIA)",
+      subtitle: "'¡Salud, Sara Señorita! Sizzling gambas al ajillo, jamón ibérico, and patatas bravas! The spicy Spanish feast you deserve!'",
+      heartMeter: 95,
+      art: ART.DINNER_DATE
+    });
+  }
+
+  await sleep(2400);
+  await waitForKeyPress("Press [SPACE] to Head to the Rooftop for the Grand Finale...");
 }
 
 async function runAct4() {
-  renderScene({
-    location: "VALENCIA - THE CRADLE OF PAELLA",
-    speaker: "VALENCIAN GRANDMASTER CHEF",
-    subtitle: "The wood fire crackles. The rice is simmering into golden glory! But we need the FINAL SECRET INGREDIENT!",
-    heartMeter: 88,
-    art: ART.PAELLA_VALENCIA
-  });
-
-  speakNarrator("The paella is simmering. What is the missing secret ingredient?");
-
-  let chosen = null;
-  while (chosen !== "C") {
-    chosen = await waitForKeyOrButton([
-      { key: "A", label: "Spicy Chorizo sausage" },
-      { key: "B", label: "Mountain of Garlic Aioli" },
-      { key: "C", label: "Sara's radiant smile & laugh" }
-    ], "What is the secret ingredient for Sara's paella?");
-
-    if (chosen === "A") {
-      renderScene({
-        location: "VALENCIA - SACRILEGE ALERT!",
-        speaker: "THE ENTIRE POPULATION OF VALENCIA",
-        subtitle: "¡¡SACRILEGIO!! Putting chorizo in authentic Valencian paella?! They will banish us to the sea! Choose again!",
-        heartMeter: 85,
-        art: ART.PAELLA_VALENCIA
-      });
-      await sleep(2000);
-    } else if (chosen === "B") {
-      renderScene({
-        location: "VALENCIA - NEAR MISS",
-        speaker: "CHEF VALENCIANO",
-        subtitle: "Aioli is heavenly, but it's not enough to win Sara's heart! Dig deeper!",
-        heartMeter: 89,
-        art: ART.PAELLA_VALENCIA
-      });
-      await sleep(2000);
-    }
-  }
-
-  playSuccessChime();
-  speakNarrator("Critical success! Sara's smile creates the most legendary socarrat in Spanish history.");
-
-  renderScene({
-    location: "VALENCIA - THE FEAST OF GLORY",
-    speaker: "CHEF VALENCIANO (CRYING TEARS OF JOY)",
-    subtitle: "¡¡¡SUBLIME!!! The socarrat reaches 100% crispy perfection! The feast is ready for our Queen Sara!",
-    heartMeter: 98,
-    art: ART.PAELLA_VALENCIA
-  });
-
   playHeartbeat();
-  await sleep(2200);
 
-  await waitForKeyPress("Press [SPACE] to Travel to Barcelona for the Grand Rooftop Confession...");
-}
-
-async function runAct5() {
   renderScene({
-    location: "BARCELONA - PARK GÜELL TWILIGHT",
-    speaker: "CINEMATIC PAUSE",
-    subtitle: "The journey through Spain reaches its horizon as the sunset paints the Mediterranean...",
-    heartMeter: 99,
-    art: ART.BARCELONA_SUNSET
+    location: "SAFESTAY ROOFTOP - UNDER THE STARS",
+    speaker: "SARA'S PERSPECTIVE",
+    subtitle: "You and Kieran stand on the Safestay rooftop under a canopy of stars. The city breeze is warm and peaceful.",
+    heartMeter: 96,
+    art: ART.ROOFTOP_FINALE
   });
 
-  await sleep(2500);
+  await sleep(2000);
 
-  // Love Letter Monologue
-  const boxW = 74;
-  let letterHtml = padCenter(`<span class="ansi-rose">╔${'═'.repeat(boxW - 2)}╗</span>`) + '\n';
-  const header = "★ A SPECIAL MESSAGE FROM THE HEART ★";
-  const padH = Math.floor((boxW - 2 - header.length) / 2);
-  letterHtml += padCenter(`<span class="ansi-rose">║</span>${' '.repeat(padH)}<span class="ansi-gold">${header}</span>${' '.repeat(boxW - 2 - header.length - padH)}<span class="ansi-rose">║</span>`) + '\n';
-  letterHtml += padCenter(`<span class="ansi-rose">╠${'═'.repeat(boxW - 2)}╣</span>`) + '\n';
-
-  const lines = [
-    "Dear Sara,",
-    "",
-    "All jokes and silly code aside...",
-    "I could have just sent you a simple text or asked you out normally.",
-    "But someone as genuinely incredible, hilarious, and radiant as you",
-    "deserves something truly one-of-a-kind.",
-    "",
-    "You bring warmth and laughter everywhere you go,",
-    "just like a golden sunset over the Mediterranean.",
-    "Sara, you are truly the socarrat of my life - the absolute best part.",
-    "Life without you is like paella without saffron: completely missing the spark.",
-    "",
-    "And because I know how much you love amazing food and great times,",
-    "there is only one question left to ask..."
-  ];
-
-  lines.forEach((l) => {
-    const padL = Math.max(0, boxW - 6 - l.length);
-    letterHtml += padCenter(`<span class="ansi-rose">║</span>  <span class="ansi-white">${l}</span>${' '.repeat(padL)}<span class="ansi-rose">║</span>`) + '\n';
+  renderScene({
+    location: "SAFESTAY ROOFTOP - UNDER THE STARS",
+    speaker: "KIERAN (TAKING SARA'S HAND)",
+    subtitle: "'Sara, tonight has been unforgettable. You make every day brighter. There is only one final thing left to decide...'",
+    heartMeter: 98,
+    art: ART.ROOFTOP_FINALE
   });
 
-  letterHtml += padCenter(`<span class="ansi-rose">╚${'═'.repeat(boxW - 2)}╝</span>`) + '\n\n';
+  await sleep(1800);
 
-  // Append Boarding Pass
-  ART.BOARDING_PASS.forEach((line) => {
-    letterHtml += padCenter(line) + '\n';
-  });
+  // The Final Choice
+  const finalChoice = await waitForKeyOrButton([
+    { key: "1", label: "Break up with current boyfriend officially" },
+    { key: "2", label: "Confess your undying love to Kieran" },
+    { key: "3", label: "Propose to Kieran on the spot!" }
+  ], "SARA'S FINAL CHOICE:");
 
-  terminalOutput.innerHTML = letterHtml;
-
-  await sleep(1500);
-
-  // Proposal
-  await waitForKeyOrButton([
-    { key: "Y", label: "¡Sí, por supuesto! (Yes, absolutely!)", className: "btn-action" },
-    { key: "C", label: "Yes, but with extra Churros & Croquetas!", className: "btn-action" },
-    { key: "D", label: "Definitely YES! When & where?!", className: "btn-action" }
-  ], "Sara, will you go on a real-life Spanish tapas date with me?");
-
-  // Grand Celebration
+  // Celebration
   playVictoryCelebration();
-  speakNarrator("Sara said yes! The mission is a triumphant success! Get ready for the best Spanish tapas date ever!");
+  speakNarrator("Sara made her choice! Kieran and Sara the spicy Señorita are officially together forever!");
 
-  for (let f = 0; f < 4; f++) {
+  if (finalChoice === "1") {
     renderScene({
-      location: "CELEBRATION OVER SPAIN",
-      speaker: "WORLD MISSION STATUS",
-      subtitle: "MISSION ACCOMPLISHED: SARA SAID YES! SARA'S HEART HAS BEEN WON!",
+      location: "SAFESTAY ROOFTOP - THE BREAKUP TEXT SENT",
+      speaker: "KIERAN (PUMPING HIS FIST IN THE AIR)",
+      subtitle: "'HE IS HISTORY! The text is sent and you are officially free! Welcome to the happiest chapter of your life, Sara Señorita!'",
       heartMeter: 1000000,
       art: ART.HEART_FIREWORKS
     });
-    await sleep(600);
+  } else if (finalChoice === "2") {
+    renderScene({
+      location: "SAFESTAY ROOFTOP - LOVE CONFESSION",
+      speaker: "KIERAN (MELTING IN SARA'S EYES)",
+      subtitle: "'You love me?! Sara, I love you more than all the stars above Safestay! You are my everything!'",
+      heartMeter: 1000000,
+      art: ART.HEART_FIREWORKS
+    });
+  } else {
+    renderScene({
+      location: "SAFESTAY ROOFTOP - THE PROPOSAL!",
+      speaker: "KIERAN (CRYING TEARS OF PURE JOY)",
+      subtitle: "'¡¡¡SÍ!!! A MILLION TIMES YES!! KIERAN & SARA RODRIGUEZ FOREVER AND ALWAYS!!'",
+      heartMeter: 1000000,
+      art: ART.HEART_FIREWORKS
+    });
   }
+
+  await sleep(2400);
 
   // Final confirmation screen
   let finalHtml = terminalOutput.innerHTML + '\n\n';
-  finalHtml += padCenter('<span class="ansi-gold" style="font-size:16px;">★ ★ ★ IT\'S AN OFFICIAL DATE! ★ ★ ★</span>') + '\n\n';
-  finalHtml += padCenter('<span class="ansi-rose">You and me + Sizzling Spanish Tapas + Endless Churros = Perfection.</span>') + '\n';
-  finalHtml += padCenter('<span class="ansi-saffron">Screenshot this screen right now and send it to me so we can set the day! 😉</span>') + '\n\n';
+  finalHtml += padCenter('<span class="ansi-gold" style="font-size:16px;">★ ★ ★ MISSION ACCOMPLISHED: SARA CHOSE KIERAN! ★ ★ ★</span>') + '\n\n';
+  finalHtml += padCenter('<span class="ansi-rose">Kieran + Sara the Spicy Señorita = Match Made in Heaven.</span>') + '\n';
+  finalHtml += padCenter('<span class="ansi-saffron">Screenshot this screen right now and send it to Kieran! 😉</span>') + '\n\n';
   terminalOutput.innerHTML = finalHtml;
 
   await waitForKeyPress("Press [SPACE] or tap Continue to Roll End Credits...");
@@ -621,21 +553,21 @@ async function runAct5() {
   creditsHtml += padCenter('<span class="ansi-gold">═══════════════════════════════════════════════════════════</span>') + '\n\n';
 
   const credits = [
-    ["STARRING", "Sara (The Love of My Life)"],
-    ["CO-STARRING & DIRECTOR", "Her Number 1 Fan"],
-    ["EXECUTIVE CHEF CONSULTANT", "Abuela de Valencia"],
-    ["FLAMENCO CHOREOGRAPHY", "Plaza de España Ensemble"],
-    ["JAMÓN SECURITY", "Don Ignacio of San Sebastián"],
+    ["STARRING", "Sara (The Spicy Señorita)"],
+    ["CO-STARRING & DIRECTOR", "Kieran (The Safestay Flirt)"],
+    ["HEADQUARTERS", "Safestay Hostels"],
+    ["FEATURE PRESENTATION", "Spider-Man: No Way Home"],
+    ["CULINARY MENU", "Safestay Pizza, Pain au Chocolat & Tapas"],
     ["PRODUCTION BUDGET", "800 lines of code & 100% genuine love"],
     ["CHANCE OF ETERNAL HAPPINESS", "100.0%"],
-    ["NEXT EPISODE", "Our Real-Life Tapas Date Coming Soon!"]
+    ["NEXT EPISODE", "Kieran & Sara Living Happily Ever After!"]
   ];
 
   credits.forEach(([role, name]) => {
     creditsHtml += padCenter(`<span class="ansi-amber">${role.padEnd(28)}</span> <span class="ansi-white">${name}</span>`) + '\n';
   });
 
-  creditsHtml += '\n' + padCenter('<span class="ansi-rose" style="font-size:15px;">♥ Gracias por existir, Sara ♥</span>') + '\n\n';
+  creditsHtml += '\n' + padCenter('<span class="ansi-rose" style="font-size:15px;">♥ Te quiero, Sara Señorita ♥</span>') + '\n\n';
   terminalOutput.innerHTML = creditsHtml;
 
   updateToolbar([
@@ -647,7 +579,7 @@ async function runAct5() {
       label: '🌹 Return to Main Website',
       onClick: () => location.href = '../'
     }
-  ], "Film Concluded. Thank you for watching!");
+  ], "Film Concluded. Kieran and Sara forever!");
 }
 
 // Initialization
@@ -661,7 +593,6 @@ btnStartMovie.addEventListener('click', async () => {
   await runAct2();
   await runAct3();
   await runAct4();
-  await runAct5();
 });
 
 btnToggleSound.addEventListener('click', () => {
