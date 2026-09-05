@@ -3,19 +3,19 @@
    ========================================================================== */
 :root {
   --bg-dark: #090714;
-  --bg-card: rgba(22, 17, 38, 0.7);
+  --bg-card: rgba(22, 17, 38, 0.75);
+  --primary-spain-red: #AA151B;
+  --primary-spain-yellow: #F1BF00;
   --primary-rose: #E63946;
   --primary-rose-hover: #ff4d5d;
-  --gold-accent: #D4AF37;
-  --gold-glow: rgba(212, 175, 55, 0.4);
   --text-main: #F8F9FA;
   --text-muted: #C4C3D0;
   --border-glass: rgba(255, 255, 255, 0.12);
   --font-serif: 'Cinzel', serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
   --radius-lg: 24px;
   --radius-md: 16px;
-  --shadow-glow: 0 10px 30px rgba(230, 57, 70, 0.25);
   --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -37,20 +37,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   position: relative;
   line-height: 1.6;
-}
-
-/* Background Canvas */
-#sparkleCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
+  background-color: var(--bg-dark);
 }
 
 /* Glass Panel Component */
@@ -60,13 +51,7 @@ body {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-}
-
-.highlight-text {
-  background: linear-gradient(135deg, #FF758C, #FF7EB3, var(--gold-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 /* ==========================================================================
@@ -80,10 +65,11 @@ body {
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
+  width: 100%;
 }
 
 .content-wrapper {
-  max-width: 1050px;
+  max-width: 1080px;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -93,7 +79,7 @@ body {
 }
 
 /* ==========================================================================
-   SVG Illustration Container
+   Spain SVG Illustration & Animations
    ========================================================================== */
 .illustration-container {
   display: flex;
@@ -102,16 +88,88 @@ body {
   width: 100%;
 }
 
-.girl-illustration {
+.spain-illustration {
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
   height: auto;
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
   transition: transform 0.5s ease;
 }
 
-.girl-illustration:hover {
-  transform: scale(1.02) rotate(-1deg);
+.spain-illustration:hover {
+  transform: scale(1.03);
+}
+
+/* SVG Keyframe Animations */
+.pulse-bg {
+  transform-origin: center;
+  animation: bgPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes bgPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.05); opacity: 1; }
+}
+
+.spin-ring {
+  transform-origin: 300px 250px;
+  animation: rotateRing 30s linear infinite;
+}
+
+.spin-ring-reverse {
+  transform-origin: 300px 250px;
+  animation: rotateRing 25s linear infinite reverse;
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spain-map-group {
+  animation: floatMap 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatMap {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+/* Animated Stroke Sweep */
+.spain-stroke-anim {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: strokeDash 8s ease-in-out infinite alternate;
+}
+
+@keyframes strokeDash {
+  0% { stroke-dashoffset: 1200; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Beacon Pin Pulse */
+.beacon-wave-1 {
+  transform-origin: center;
+  animation: pingWave 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.beacon-wave-2 {
+  transform-origin: center;
+  animation: pingWave 2s cubic-bezier(0, 0, 0.2, 1) infinite 0.6s;
+}
+
+@keyframes pingWave {
+  0% { transform: scale(0.3); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.spain-banner {
+  animation: bounceBanner 3s ease-in-out infinite alternate;
+}
+
+@keyframes bounceBanner {
+  0% { transform: translate(300px, 160px) translateY(0); }
+  100% { transform: translate(300px, 160px) translateY(-5px); }
 }
 
 /* ==========================================================================
@@ -120,83 +178,39 @@ body {
 .text-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  border-radius: 30px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--gold-accent);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  width: fit-content;
+  gap: 24px;
 }
 
 .main-heading {
   font-family: var(--font-serif);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 700;
-  line-height: 1.2;
-}
-
-.sub-heading {
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-  color: var(--text-muted);
-  font-weight: 500;
-  margin-top: -10px;
+  line-height: 1.25;
+  color: var(--text-main);
+  text-transform: lowercase;
 }
 
 /* Relocation Callout Box */
 .relocation-box {
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 24px;
   background: rgba(9, 7, 20, 0.6);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-md);
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
   transition: var(--transition);
 }
 
 .relocation-box:hover {
-  border-color: var(--gold-accent);
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
-}
-
-.relocation-icon {
-  width: 50px;
-  height: 50px;
-  min-width: 50px;
-  background: linear-gradient(135deg, #f59e0b, #dc2626);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: #fff;
-  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.4);
+  border-color: var(--primary-spain-yellow);
 }
 
 .relocation-text h3 {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-family: var(--font-montserrat);
+  font-size: 1.35rem;
+  font-weight: 700;
   color: #fff;
-  margin-bottom: 6px;
-}
-
-.relocation-text p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-bottom: 18px;
-  line-height: 1.5;
+  margin-bottom: 16px;
+  letter-spacing: -0.2px;
 }
 
 /* Cinema Link Button */
@@ -205,20 +219,18 @@ body {
   align-items: center;
   gap: 12px;
   padding: 12px 26px;
-  background: linear-gradient(135deg, var(--primary-rose), #C1121F);
+  background-color: var(--primary-rose);
   color: #fff;
   text-decoration: none;
   font-weight: 700;
   font-size: 0.95rem;
   border-radius: 30px;
-  box-shadow: var(--shadow-glow);
   transition: var(--transition);
 }
 
 .cinema-link-btn:hover {
-  background: linear-gradient(135deg, var(--primary-rose-hover), #E63946);
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(230, 57, 70, 0.45);
+  background-color: var(--primary-rose-hover);
+  transform: translateY(-2px);
 }
 
 .cinema-link-btn i {
@@ -227,19 +239,6 @@ body {
 
 .cinema-link-btn:hover i {
   transform: translateX(4px);
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-.site-footer {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Responsive Media Queries */
@@ -251,21 +250,11 @@ body {
     text-align: center;
   }
 
-  .status-badge {
-    margin: 0 auto;
-  }
-
   .text-container {
     align-items: center;
   }
 
-  .relocation-box {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .girl-illustration {
-    max-width: 320px;
+  .spain-illustration {
+    max-width: 360px;
   }
 }
