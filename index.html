@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sara's Sanctuary</title>
+  <title>Under Construction</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,165 +12,139 @@
 </head>
 <body>
 
-  <!-- Floating Background Canvas -->
-  <canvas id="sparkleCanvas"></canvas>
-
   <main class="main-container">
     <div class="content-wrapper glass-panel">
-      <!-- SVG Illustration -->
+      <!-- Animated Spain SVG Illustration -->
       <div class="illustration-container">
-        <svg class="girl-illustration" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+        <svg class="spain-illustration" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <!-- Background Glow Gradient -->
-            <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#E63946" stop-opacity="0.3"/>
-              <stop offset="100%" stop-color="#090714" stop-opacity="0"/>
-            </radialGradient>
-
-            <!-- Hair Gradient -->
-            <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#5a2d1d"/>
-              <stop offset="35%" stop-color="#3d1d12"/>
-              <stop offset="70%" stop-color="#8c4427"/>
-              <stop offset="100%" stop-color="#241009"/>
+            <!-- Spain Flag Gradients -->
+            <linearGradient id="spainFlagGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#AA151B"/>
+              <stop offset="22%" stop-color="#AA151B"/>
+              <stop offset="25%" stop-color="#F1BF00"/>
+              <stop offset="75%" stop-color="#F1BF00"/>
+              <stop offset="78%" stop-color="#AA151B"/>
+              <stop offset="100%" stop-color="#AA151B"/>
             </linearGradient>
 
-            <!-- Hair Highlight Gradient -->
-            <linearGradient id="hairHighlight" x1="0%" y1="0%" x2="100%" y2="50%">
-              <stop offset="0%" stop-color="#c86d46"/>
-              <stop offset="100%" stop-color="#e08f65"/>
+            <linearGradient id="waveGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF7E5F">
+                <animate attributeName="stop-color" values="#FF7E5F;#FEB47B;#FF7E5F" dur="4s" repeatCount="indefinite" />
+              </stop>
+              <stop offset="50%" stop-color="#FEB47B">
+                <animate attributeName="stop-color" values="#FEB47B;#FF1361;#FEB47B" dur="4s" repeatCount="indefinite" />
+              </stop>
+              <stop offset="100%" stop-color="#FFF176">
+                <animate attributeName="stop-color" values="#FFF176;#FF7E5F;#FFF176" dur="4s" repeatCount="indefinite" />
+              </stop>
             </linearGradient>
 
-            <!-- Skin Gradient -->
-            <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#fce2d0"/>
-              <stop offset="50%" stop-color="#f5cbb3"/>
-              <stop offset="100%" stop-color="#e0a385"/>
-            </linearGradient>
+            <filter id="spainGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#F1BF00" flood-opacity="0.35"/>
+              <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#AA151B" flood-opacity="0.45"/>
+            </filter>
 
-            <linearGradient id="shadowSkin" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#d48c6a" stop-opacity="0.4"/>
-              <stop offset="100%" stop-color="#a85d3b" stop-opacity="0.6"/>
-            </linearGradient>
-
-            <!-- Tongue Gradient -->
-            <linearGradient id="tongueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#ff758c"/>
-              <stop offset="100%" stop-color="#d83a56"/>
-            </linearGradient>
-
-            <!-- Gold Jewelry Gradient -->
-            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#ffe89c"/>
-              <stop offset="50%" stop-color="#d4af37"/>
-              <stop offset="100%" stop-color="#997a15"/>
-            </linearGradient>
-
-            <!-- Drop Shadow for Depth -->
-            <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#000" flood-opacity="0.5"/>
+            <filter id="pinGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#FFF" flood-opacity="0.8"/>
             </filter>
           </defs>
 
-          <!-- Back Glow -->
-          <circle cx="250" cy="280" r="220" fill="url(#bgGlow)"/>
+          <!-- Ambient Outer Glow Circle -->
+          <circle cx="300" cy="250" r="210" fill="url(#spainFlagGrad)" class="pulse-bg"/>
 
-          <!-- Back Hair -->
-          <path d="M 130 200 C 100 250, 90 380, 110 500 C 120 540, 150 580, 180 600 L 350 600 C 390 560, 420 480, 410 380 C 400 280, 370 200, 340 180 Z" fill="url(#hairGrad)" filter="url(#softShadow)"/>
+          <!-- Decorative Animated Grid Rings -->
+          <circle cx="300" cy="250" r="230" fill="none" stroke="rgba(241, 191, 0, 0.25)" stroke-width="1.5" stroke-dasharray="8 12" class="spin-ring"/>
+          <circle cx="300" cy="250" r="190" fill="none" stroke="rgba(170, 21, 27, 0.3)" stroke-width="1" stroke-dasharray="15 10 5 10" class="spin-ring-reverse"/>
 
-          <!-- Shoulders & Torso (Black Top) -->
-          <path d="M 100 580 C 130 480, 200 460, 250 460 C 300 460, 370 480, 410 580 L 450 600 L 60 600 Z" fill="#171520"/>
-          <path d="M 130 510 C 170 490, 220 480, 250 480 C 280 480, 330 490, 370 510 C 360 560, 350 600, 350 600 L 150 600 C 150 600, 140 560, 130 510 Z" fill="#201c2e"/>
+          <!-- Spain Map Silhouette Path with Spain Flag Fill -->
+          <g filter="url(#spainGlow)" class="spain-map-group">
+            <!-- Spain Main Outline -->
+            <path class="spain-path" d="
+              M 115 130
+              C 125 110, 160 100, 190 98
+              C 215 97, 240 108, 270 102
+              C 295 97, 330 92, 355 105
+              C 375 115, 395 110, 420 125
+              C 435 135, 450 150, 445 170
+              C 440 185, 455 200, 465 215
+              C 475 230, 480 250, 470 270
+              C 460 285, 440 295, 430 310
+              C 420 325, 400 340, 385 355
+              C 370 370, 345 385, 325 390
+              C 310 393, 290 395, 270 390
+              C 255 385, 240 375, 225 380
+              C 210 385, 200 405, 185 400
+              C 175 395, 175 380, 165 375
+              C 155 370, 140 375, 130 365
+              C 120 355, 130 340, 125 325
+              C 120 310, 135 295, 135 280
+              C 135 260, 125 240, 130 220
+              C 135 200, 120 180, 115 160
+              Z
+            " fill="url(#spainFlagGrad)" stroke="#FFE066" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-          <!-- Neck & Chest -->
-          <path d="M 200 370 C 200 430, 210 480, 250 490 C 290 480, 300 430, 300 370 Z" fill="url(#skinGrad)"/>
-          <!-- Neck Shadow -->
-          <path d="M 200 370 C 220 410, 280 410, 300 370 C 280 430, 220 430, 200 370 Z" fill="url(#shadowSkin)"/>
+            <!-- Animated Stroke Sweep Effect over Spain Map -->
+            <path class="spain-stroke-anim" d="
+              M 115 130
+              C 125 110, 160 100, 190 98
+              C 215 97, 240 108, 270 102
+              C 295 97, 330 92, 355 105
+              C 375 115, 395 110, 420 125
+              C 435 135, 450 150, 445 170
+              C 440 185, 455 200, 465 215
+              C 475 230, 480 250, 470 270
+              C 460 285, 440 295, 430 310
+              C 420 325, 400 340, 385 355
+              C 370 370, 345 385, 325 390
+              C 310 393, 290 395, 270 390
+              C 255 385, 240 375, 225 380
+              C 210 385, 200 405, 185 400
+              C 175 395, 175 380, 165 375
+              C 155 370, 140 375, 130 365
+              C 120 355, 130 340, 125 325
+              C 120 310, 135 295, 135 280
+              C 135 260, 125 240, 130 220
+              C 135 200, 120 180, 115 160
+              Z
+            " fill="none" stroke="url(#waveGlow)" stroke-width="4.5" stroke-linecap="round"/>
 
-          <!-- Gold Necklace & Cross Pendant -->
-          <path d="M 215 420 Q 250 460 285 420" fill="none" stroke="url(#goldGrad)" stroke-width="2.5"/>
-          <g transform="translate(250, 452)">
-            <path d="M -2 -10 L 2 -10 L 2 10 L -2 10 Z M -8 -4 L 8 -4 L 8 0 L -8 0 Z" fill="url(#goldGrad)"/>
+            <!-- Balearic Islands (Mallorca, Menorca, Ibiza) -->
+            <g class="islands">
+              <!-- Mallorca -->
+              <ellipse cx="490" cy="270" rx="14" ry="10" fill="url(#spainFlagGrad)" stroke="#FFE066" stroke-width="1.5" transform="rotate(-15 490 270)"/>
+              <!-- Menorca -->
+              <ellipse cx="520" cy="250" rx="8" ry="5" fill="url(#spainFlagGrad)" stroke="#FFE066" stroke-width="1.5" transform="rotate(-20 520 250)"/>
+              <!-- Ibiza -->
+              <ellipse cx="460" cy="295" rx="7" ry="5" fill="url(#spainFlagGrad)" stroke="#FFE066" stroke-width="1.5" transform="rotate(-10 460 295)"/>
+            </g>
+
+            <!-- Canary Islands Inset / Accents -->
+            <g class="canary-islands" transform="translate(60, 415)">
+              <rect x="0" y="0" width="115" height="42" rx="8" fill="rgba(9, 7, 20, 0.7)" stroke="rgba(241, 191, 0, 0.4)" stroke-width="1"/>
+              <text x="10" y="14" font-size="7.5" fill="#F1BF00" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" letter-spacing="0.5">ISLAS CANARIAS</text>
+              <ellipse cx="20" cy="28" rx="6" ry="4" fill="#F1BF00"/>
+              <ellipse cx="38" cy="26" rx="8" ry="4" fill="#AA151B"/>
+              <ellipse cx="60" cy="28" rx="10" ry="5" fill="#F1BF00"/>
+              <ellipse cx="85" cy="30" rx="7" ry="4" fill="#AA151B"/>
+            </g>
+
+            <!-- Animated Location Beacon Pin (Madrid Center) -->
+            <g transform="translate(290, 240)" class="location-beacon" filter="url(#pinGlow)">
+              <!-- Pulsing Waves -->
+              <circle cx="0" cy="0" r="10" fill="none" stroke="#FFF" stroke-width="2" class="beacon-wave-1"/>
+              <circle cx="0" cy="0" r="20" fill="none" stroke="#F1BF00" stroke-width="1.5" class="beacon-wave-2"/>
+              <!-- Pin Dot -->
+              <circle cx="0" cy="0" r="6" fill="#FFF"/>
+              <circle cx="0" cy="0" r="3" fill="#AA151B"/>
+            </g>
+
+            <!-- Floating Crest / Banner Element -->
+            <g transform="translate(300, 160)" class="spain-banner">
+              <rect x="-65" y="-15" width="130" height="30" rx="15" fill="rgba(170, 21, 27, 0.9)" stroke="#F1BF00" stroke-width="2"/>
+              <text x="0" y="5" font-family="'Cinzel', serif" font-weight="800" font-size="13" fill="#FFF" text-anchor="middle" letter-spacing="2">ESPAÑA</text>
+            </g>
           </g>
-
-          <!-- Face Shape -->
-          <path d="M 180 220 C 170 300, 195 385, 250 385 C 305 385, 330 300, 320 220 C 310 160, 190 160, 180 220 Z" fill="url(#skinGrad)"/>
-
-          <!-- Cheek Contour & Blush -->
-          <ellipse cx="205" cy="310" rx="20" ry="12" fill="#ff758c" opacity="0.25"/>
-          <ellipse cx="295" cy="305" rx="22" ry="13" fill="#ff758c" opacity="0.25"/>
-
-          <!-- Left Ear & Hoop Earring -->
-          <path d="M 178 270 C 168 275, 168 295, 180 300 Z" fill="url(#skinGrad)"/>
-          <circle cx="170" cy="295" r="9" fill="none" stroke="url(#goldGrad)" stroke-width="3"/>
-
-          <!-- Winking / Squinting Eyes -->
-          <!-- Right Eye (Squinting playful expression) -->
-          <path d="M 270 270 Q 290 258 310 272" fill="none" stroke="#2a1810" stroke-width="4.5" stroke-linecap="round"/>
-          <path d="M 275 273 Q 290 282 305 273" fill="none" stroke="#2a1810" stroke-width="2" stroke-linecap="round"/>
-          <path d="M 305 268 L 316 263 M 308 273 L 320 273 M 304 277 L 314 282" stroke="#2a1810" stroke-width="2.5" stroke-linecap="round"/>
-
-          <!-- Left Eye (Playful happy squint) -->
-          <path d="M 190 273 Q 210 260 230 275" fill="none" stroke="#2a1810" stroke-width="4.5" stroke-linecap="round"/>
-          <path d="M 195 276 Q 210 284 225 276" fill="none" stroke="#2a1810" stroke-width="2" stroke-linecap="round"/>
-          <path d="M 190 270 L 180 264 M 188 274 L 176 274 M 190 279 L 180 284" stroke="#2a1810" stroke-width="2.5" stroke-linecap="round"/>
-
-          <!-- Eyebrows (Expressive & Arched) -->
-          <path d="M 185 250 Q 210 238 232 255" fill="none" stroke="#3b1e13" stroke-width="4" stroke-linecap="round"/>
-          <path d="M 268 252 Q 292 235 315 248" fill="none" stroke="#3b1e13" stroke-width="4" stroke-linecap="round"/>
-
-          <!-- Nose -->
-          <path d="M 248 270 L 244 300 Q 250 308 256 300" fill="none" stroke="#c07856" stroke-width="3" stroke-linecap="round"/>
-          <path d="M 240 303 Q 250 309 260 303" fill="none" stroke="#a85d3b" stroke-width="2.5" stroke-linecap="round"/>
-
-          <!-- Playful Mouth & Tongue Out -->
-          <!-- Open Mouth Contour -->
-          <path d="M 215 325 Q 250 320 285 328 C 280 365, 220 365, 215 325 Z" fill="#4a151b"/>
-          <!-- Upper Teeth -->
-          <path d="M 222 326 Q 250 324 278 328 Q 250 334 222 326 Z" fill="#ffffff"/>
-          <!-- Tongue sticking out -->
-          <path d="M 230 338 C 225 375, 275 375, 270 338 Z" fill="url(#tongueGrad)"/>
-          <path d="M 250 340 L 250 362" stroke="#b82e45" stroke-width="2" stroke-linecap="round"/>
-
-          <!-- Forehead & Front Hair Flow -->
-          <!-- Top Hair Volume -->
-          <path d="M 160 210 C 150 120, 220 80, 270 80 C 340 80, 360 130, 340 210 C 330 140, 260 100, 210 130 C 180 150, 165 180, 160 210 Z" fill="url(#hairGrad)"/>
-          <!-- Left Framing Waves -->
-          <path d="M 180 160 C 140 220, 130 320, 150 420 C 160 470, 180 520, 180 580 C 150 510, 120 400, 135 280 C 145 200, 165 170, 180 160 Z" fill="url(#hairGrad)"/>
-          <!-- Right Framing Waves -->
-          <path d="M 310 170 C 350 230, 370 320, 360 420 C 350 480, 320 540, 310 600 C 340 530, 380 430, 375 310 C 370 220, 340 180, 310 170 Z" fill="url(#hairGrad)"/>
-
-          <!-- Hair Highlights & Details -->
-          <path d="M 220 100 Q 270 90 310 125" fill="none" stroke="url(#hairHighlight)" stroke-width="4" opacity="0.7"/>
-          <path d="M 185 170 Q 155 240 165 330" fill="none" stroke="url(#hairHighlight)" stroke-width="3" opacity="0.6"/>
-          <path d="M 325 180 Q 355 250 350 340" fill="none" stroke="url(#hairHighlight)" stroke-width="3" opacity="0.6"/>
-
-          <!-- Raised Arm & Hand under Chin -->
-          <!-- Forearm coming from right side -->
-          <path d="M 340 500 C 310 440, 280 390, 235 375 C 220 370, 210 380, 225 390 C 260 410, 290 460, 310 520 Z" fill="url(#skinGrad)"/>
-          <!-- Hand & Fingers resting under chin -->
-          <path d="M 200 370 C 190 360, 220 355, 240 368 C 230 378, 205 382, 200 370 Z" fill="url(#skinGrad)"/>
-          <!-- Yellow/Gold Manicured Nails -->
-          <ellipse cx="202" cy="362" rx="3" ry="5" fill="#fef08a" transform="rotate(-30 202 362)"/>
-          <ellipse cx="218" cy="358" rx="3" ry="5" fill="#fef08a" transform="rotate(-10 218 358)"/>
-
-          <!-- Black Hair Ties on Wrist -->
-          <path d="M 305 450 Q 320 460 330 455" stroke="#111" stroke-width="7" stroke-linecap="round" fill="none"/>
-          <path d="M 308 456 Q 323 466 333 461" stroke="#222" stroke-width="6" stroke-linecap="round" fill="none"/>
-
-          <!-- Tattoos on Arm & Wrist -->
-          <!-- Wrist Script & Symbols -->
-          <path d="M 290 430 Q 300 435 310 432" stroke="#2c2a38" stroke-width="2" fill="none" opacity="0.8"/>
-          <text x="290" y="425" font-family="sans-serif" font-size="7" fill="#2c2a38" opacity="0.75" transform="rotate(-25 290 425)">★ BREATH ★</text>
-
-          <!-- Inner Bicep Moon Phases Tattoo -->
-          <g transform="translate(355, 410) rotate(-40)" opacity="0.7">
-            <circle cx="0" cy="0" r="3" fill="#2c2a38"/>
-            <path d="M 8 -3 A 3 3 0 0 1 8 3 A 2 2 0 0 0 8 -3" fill="#2c2a38"/>
-            <path d="M -8 -3 A 3 3 0 0 0 -8 3 A 2 2 0 0 1 -8 -3" fill="#2c2a38"/>
-            <line x1="-15" y1="0" x2="15" y2="0" stroke="#2c2a38" stroke-width="0.8"/>
-          </g>
-
         </svg>
       </div>
 
@@ -203,7 +177,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>Sara's Sanctuary &bull; Built with love</p>
+    <p>Built with love &bull; Under Construction</p>
   </footer>
 
   <script src="app.js"></script>
