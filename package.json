@@ -1,0 +1,21 @@
+{
+  "name": "sarawiki",
+  "version": "1.0.0",
+  "description": "SaraWiki — The free encyclopedia of Sara-related knowledge",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "node -e \"import('http').then(h => { const fs = import('fs'); const path = import('path'); const mime = {'.html':'text/html','.css':'text/css','.js':'application/javascript','.svg':'image/svg+xml','.json':'application/json'}; h.createServer(async (req,res) => { let p = req.url.split('?')[0]; if (p === '/') p = '/index.html'; const f = '.' + p; try { const data = await (await fs).promises.readFile(f); const ext = (await path).extname(f); res.writeHead(200, {'Content-Type': mime[ext] || 'text/plain'}); res.end(data); } catch(e) { res.writeHead(404); res.end('Not Found'); } }).listen(3000, () => console.log('SaraWiki live at http://localhost:3000')); })\"",
+    "test": "node test_sarawiki.js",
+    "build": "node test_sarawiki.js"
+  },
+  "keywords": [
+    "sarawiki",
+    "wikipedia",
+    "encyclopedia",
+    "sara",
+    "gift"
+  ],
+  "author": "Kieran",
+  "license": "MIT"
+}

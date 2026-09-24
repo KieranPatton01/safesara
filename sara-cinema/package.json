@@ -1,0 +1,21 @@
+{
+  "name": "sara-cinema",
+  "version": "1.0.0",
+  "description": "Misión Im-Paella-ble: An epic romantic comedy movie for Sara",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test_scenes.js"
+  },
+  "keywords": [
+    "terminal-movie",
+    "rom-com",
+    "spain",
+    "tapas",
+    "paella",
+    "sara"
+  ],
+  "author": "Kieran",
+  "license": "MIT"
+}

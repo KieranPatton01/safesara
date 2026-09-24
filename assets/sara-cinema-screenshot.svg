@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 580" width="100%" height="100%">
+  <defs>
+    <!-- CRT Scanline Pattern -->
+    <pattern id="scanlines" width="100" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="100" y2="0" stroke="rgba(0, 0, 0, 0.35)" stroke-width="1.5" />
+    </pattern>
+
+    <!-- Radial Glow for CRT Cathode Tube -->
+    <radialGradient id="crtGlow" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#1c1635" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#0e0b1c" stop-opacity="0.98" />
+      <stop offset="100%" stop-color="#07050e" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Button & Pill Gradients -->
+    <linearGradient id="goldBorder" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#211b3b" />
+      <stop offset="100%" stop-color="#151128" />
+    </linearGradient>
+
+    <linearGradient id="activeBtnGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b2d18" />
+      <stop offset="100%" stop-color="#231a0d" />
+    </linearGradient>
+
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#f59e0b" flood-opacity="0.4" />
+    </filter>
+
+    <style>
+      .mono-text { font-family: 'Fira Code', Consolas, Monaco, 'Courier New', monospace; }
+      .ui-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .gold { fill: #fef08a; }
+      .amber { fill: #f59e0b; }
+      .saffron { fill: #ffc107; }
+      .rose { fill: #fb7185; }
+      .crimson { fill: #ef4444; }
+      .white { fill: #f8fafc; }
+      .muted { fill: #94a3b8; }
+      .dim { fill: #64748b; }
+    </style>
+  </defs>
+
+  <!-- Ambient Backdrop -->
+  <rect width="860" height="580" fill="#05040a" />
+
+  <!-- CRT Window Container -->
+  <g transform="translate(15, 15)">
+    <!-- Terminal Outer Frame -->
+    <rect width="830" height="550" rx="10" ry="10" fill="url(#crtGlow)" stroke="url(#goldBorder)" stroke-width="2" filter="url(#subtleGlow)" />
+
+    <!-- Terminal Header Bar -->
+    <rect width="830" height="38" rx="10" ry="10" fill="url(#headerGrad)" />
+    <!-- Square off bottom corners of header -->
+    <rect y="26" width="830" height="12" fill="url(#headerGrad)" />
+    <line x1="0" y1="38" x2="830" y2="38" stroke="rgba(245, 158, 11, 0.45)" stroke-width="1.5" />
+
+    <!-- Header Left: Terminal Title & Retro Prompt Icon -->
+    <g transform="translate(16, 24)">
+      <rect x="0" y="-13" width="18" height="15" rx="3" fill="#3b2816" stroke="#f59e0b" stroke-width="1" />
+      <text x="4" y="-2" class="mono-text" font-size="11" font-weight="bold" fill="#f59e0b">&gt;_</text>
+      <text x="26" y="-1" class="mono-text" font-size="11.5" font-weight="500" fill="#f8fafc">
+        C:\Windows\System32\cmd.exe - Sara Studios Presents: Sara the Spicy Senorita
+      </text>
+    </g>
+
+    <!-- Header Right: Quick Controls -->
+    <g transform="translate(630, 10)">
+      <!-- Sound Pill -->
+      <rect x="0" y="0" width="82" height="20" rx="4" fill="#1b1730" stroke="#f59e0b" stroke-width="1" />
+      <text x="41" y="14" class="ui-text" font-size="9" font-weight="600" fill="#fef08a" text-anchor="middle">SOUND: ON</text>
+
+      <!-- CRT Pill -->
+      <rect x="88" y="0" width="68" height="20" rx="4" fill="#1b1730" stroke="#f59e0b" stroke-width="1" />
+      <text x="122" y="14" class="ui-text" font-size="9" font-weight="600" fill="#fef08a" text-anchor="middle">CRT: ON</text>
+
+      <!-- Exit Button -->
+      <rect x="162" y="0" width="30" height="20" rx="4" fill="#451a1a" stroke="#ef4444" stroke-width="1" />
+      <text x="177" y="14" class="ui-text" font-size="10" font-weight="bold" fill="#fca5a5" text-anchor="middle">X</text>
+    </g>
+
+    <!-- Top Filmstrip Letterbox -->
+    <g transform="translate(15, 48)">
+      <rect width="800" height="18" fill="#090714" />
+      <text x="400" y="13" class="mono-text" font-size="9.5" fill="#f59e0b" letter-spacing="3" text-anchor="middle">
+        [# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #]
+      </text>
+    </g>
+
+    <!-- MAIN TERMINAL VIEWPORT -->
+    <g id="screenContent">
+      <!-- Rating Certificate Banner / Scene Tag -->
+      <g transform="translate(415, 84)">
+        <rect x="-190" y="-12" width="380" height="24" rx="4" fill="#1a152e" stroke="#f59e0b" stroke-width="1" />
+        <text x="0" y="4" class="mono-text" font-size="11" font-weight="bold" fill="#f59e0b" text-anchor="middle">
+          [ SCENE: SAFESTAY HOSTELS - RECEPTION ]
+        </text>
+      </g>
+
+      <!-- Rating Certificate Pill in Top-Right -->
+      <g transform="translate(620, 84)">
+        <rect x="0" y="-12" width="195" height="24" rx="4" fill="#3b111a" stroke="#ef4444" stroke-width="1" />
+        <text x="97" y="4" class="mono-text" font-size="9" font-weight="bold" fill="#fca5a5" text-anchor="middle">
+          RATED [ S ] : FOR SARA SENORITA
+        </text>
+      </g>
+
+      <!-- SAFESTAY HOSTEL ASCII ART -->
+      <g transform="translate(85, 120)" class="mono-text" font-size="11.5" letter-spacing="1">
+        <text y="0" fill="#f59e0b">       .-------------------------------------------------------------.     </text>
+        <text y="16" fill="#fef08a">       |     [*]  S A F E S T A Y   H O S T E L S   L O U N G E  [*]  |     </text>
+        <text y="32" fill="#f59e0b">       '-------------------------------------------------------------'     </text>
+        <text y="48" fill="#94a3b8">        |   [FRONT DESK]                     [KEYCARDS] [RECEPTION BELL] | </text>
+        <text y="64" fill="#ffc107">        |   +---------------+                  +--+       (o)           | </text>
+        <text y="80" fill="#fb7185">        |   | SARA (On Duty)|                  |##|      / | \          | </text>
+        <text y="96" fill="#ffc107">        |   | Looking Spicy |   KIERAN (6ft 3)   +--+     /  |  \  KIERAN | </text>
+        <text y="112" fill="#fef08a">        |   +---------------+   ------------&gt;          (_______) SMILES | </text>
+        <text y="128" fill="#64748b">     ===+===============================================================+== </text>
+      </g>
+
+      <!-- SUBTITLE / DIALOGUE BOX -->
+      <g transform="translate(95, 275)">
+        <rect width="640" height="88" rx="4" fill="#130f24" stroke="#ffc107" stroke-width="1.2" />
+        <text x="20" y="24" class="mono-text" font-size="11" font-weight="bold" fill="#ffc107">
+          [*] SARA'S PERSPECTIVE:
+        </text>
+        <text x="20" y="46" class="mono-text" font-size="11" fill="#f8fafc">
+          You (Sara) are working another busy shift at Safestay Hostels...
+        </text>
+        <text x="20" y="66" class="mono-text" font-size="11" fill="#fef08a">
+          looking radiant and effortlessly spicy as always.
+        </text>
+      </g>
+
+      <!-- SARA SENORITA ROMANCE METER -->
+      <g transform="translate(415, 390)">
+        <rect x="-240" y="-14" width="480" height="28" rx="6" fill="#1e1328" stroke="#fb7185" stroke-width="1.2" />
+        <text x="0" y="5" class="mono-text" font-size="11.5" font-weight="bold" fill="#fb7185" text-anchor="middle">
+          SARA SENORITA ROMANCE METER: [&lt;3 &lt;3 &lt;3 .. .. .. .. .. .. ..] 30%
+        </text>
+      </g>
+
+      <!-- DIALOGUE CALLOUT -->
+      <g transform="translate(415, 432)">
+        <text x="0" y="0" class="mono-text" font-size="11" fill="#fef08a" text-anchor="middle" font-style="italic">
+          Kieran: "Hey Sara, look at me for a second. You look stunning today, Senorita."
+        </text>
+      </g>
+    </g>
+
+    <!-- Bottom Filmstrip Letterbox -->
+    <g transform="translate(15, 450)">
+      <rect width="800" height="18" fill="#090714" />
+      <text x="400" y="13" class="mono-text" font-size="9.5" fill="#f59e0b" letter-spacing="3" text-anchor="middle">
+        [# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #]
+      </text>
+    </g>
+
+    <!-- FOOTER INTERACTION TOOLBAR -->
+    <g transform="translate(15, 474)">
+      <!-- Toolbar Background -->
+      <rect width="800" height="66" rx="6" fill="#140f26" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1" />
+      
+      <!-- Prompt label -->
+      <text x="400" y="18" class="ui-text" font-size="10.5" font-weight="600" fill="#94a3b8" text-anchor="middle">
+        SARA'S CHOICE: Who do you pick? (Press key or tap an option)
+      </text>
+
+      <!-- Option 1: Choose Kieran -->
+      <g transform="translate(140, 26)">
+        <rect width="240" height="32" rx="5" fill="url(#activeBtnGrad)" stroke="#f59e0b" stroke-width="1.5" />
+        <text x="120" y="20" class="mono-text" font-size="11" font-weight="bold" fill="#fef08a" text-anchor="middle">
+          <tspan fill="#f59e0b">[ 1 ]</tspan> Choose Kieran (6ft 3)
+        </text>
+      </g>
+
+      <!-- Option 2: Current Boyfriend -->
+      <g transform="translate(420, 26)">
+        <rect width="240" height="32" rx="5" fill="#1b1730" stroke="#64748b" stroke-width="1" />
+        <text x="120" y="20" class="mono-text" font-size="11" font-weight="500" fill="#cbd5e1" text-anchor="middle">
+          <tspan fill="#94a3b8">[ 2 ]</tspan> Stick with boyfriend (Mid)
+        </text>
+      </g>
+    </g>
+
+    <!-- Scanline Overlay Layer across the whole CRT -->
+    <rect width="830" height="550" rx="10" ry="10" fill="url(#scanlines)" pointer-events="none" />
+  </g>
+</svg>
