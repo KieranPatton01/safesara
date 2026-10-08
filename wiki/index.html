@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sara — SaraWiki, the free encyclopedia</title>
+  
+  <!-- SEO & Social Sharing Meta Tags -->
+  <meta name="description" content="Sara is an individual of significant domestic and international interest, best known for being Sara and maintaining an uncontested win-rate in household debates." />
+  <meta property="og:title" content="Sara — SaraWiki, the free encyclopedia" />
+  <meta property="og:description" content="The comprehensive encyclopedia article on Sara: early life, career, domestic controversies, blanket hoarding, and tapas connoisseurship." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="/assets/sara-main.jpg" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+
+  <!-- Encyclopedic Stylesheet -->
+  <link rel="stylesheet" href="../src/styles/wikipedia.css" />
+</head>
+<body>
+  <!-- Global Navigation Header -->
+  <nav style="background: #1e1b4b; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 14px; color: #fff; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+    <div style="display: flex; gap: 20px; align-items: center;">
+      <a href="../" style="color: #fef08a; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 6px;">
+        ← Back to Landing Page
+      </a>
+      <span style="opacity: 0.3;">|</span>
+      <span style="color: #93c5fd; font-weight: 600;">📖 SaraWiki (Live Edition)</span>
+    </div>
+    <div style="display: flex; gap: 15px; align-items: center;">
+      <a href="../cinema/" style="background: linear-gradient(135deg, #f59e0b, #dc2626); color: #fff; text-decoration: none; font-weight: 700; padding: 6px 14px; border-radius: 20px; font-size: 13px;">
+        🍿 Sara Cinema
+      </a>
+    </div>
+  </nav>
+
+  <!-- Root Single Page Container -->
+  <div id="app">
+    <noscript>
+      <div style="padding: 2rem; font-family: Georgia, serif; max-width: 800px; margin: 0 auto;">
+        <h1>Sara — SaraWiki</h1>
+        <p><strong>Sara</strong> is an individual of significant interest. Please enable JavaScript to access the full encyclopedia experience.</p>
+      </div>
+    </noscript>
+  </div>
+
+  <!-- Master Application Script (ES Module) -->
+  <script type="module" src="../src/app.js"></script>
+
+  <!-- Google Translate Programmatic Integration -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      if (window.google && window.google.translate) {
+        new window.google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,es',
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
