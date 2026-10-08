@@ -54,7 +54,7 @@ export const saraConfig = {
     subtitle: "Safestay icon, disputed snack thief",
     showStatistics: false, // Set to true if you wish to re-enable "Recorded Statistics" in the infobox
     image: {
-      src: "assets/sara-main.jpg",
+      src: "../assets/sara-main.jpg",
       alt: "Sara playfully sticking out her tongue outdoors in the sunlight",
       caption: "Sara demonstrating master-level diplomatic facial expressions and tactical tongue rhetoric during an outdoor symposium (c. 2024)"
     },
@@ -160,7 +160,7 @@ export const saraConfig = {
         number: "3",
         title: "Career, Safestay leadership, collegiate rugby, and corporate internship",
         figure: {
-          src: "assets/sara-morning-shift-award.jpg",
+          src: "../assets/sara-morning-shift-award.jpg",
           alt: "Sara being invested with the Prettiest Morning Shift Award",
           caption: "Fig 1. Sara formally receiving the ceremonial sky-blue sash (<em>beca</em>) and diploma upon winning the <em>Prettiest Morning Shift Award</em> (2024), visibly moved after maintaining flawless aesthetic standards at 06:45 AM on three hours of sleep."
         },
@@ -216,7 +216,7 @@ export const saraConfig = {
           `Her leisure habits include high-level blanket engineering. Observers report that Sara can cocoon herself in under 4.2 seconds, achieving optimal thermal efficiency that baffles thermodynamic engineers.<sup>[6]</sup>`
         ],
         figure: {
-          src: "assets/diagram-sofa.svg",
+          src: "../assets/diagram-sofa.svg",
           alt: "Diagram of sofa territory dispute",
           caption: "Fig 2. Technical mapping of domestic sofa sovereignty under the Living Room Treaty of 2024. Sara's sector occupies 92% of surface area; remaining 8% is designated for general use."
         },
@@ -456,7 +456,7 @@ export const saraConfig = {
             number: "9.4",
             title: "The Safestay Reception Incident ('The Coffee Machine & Vinyl Record Affair')",
             figure: {
-              src: "assets/sara-broken-vinyl.jpg",
+              src: "../assets/sara-broken-vinyl.jpg",
               alt: "Security camera still of Sara carrying a cardboard box filled with shattered vinyl records away from reception",
               caption: "Fig 3. Declassified security camera still (Safestay reception, c. 2024) purportedly capturing Sara transporting a cardboard container filled with the shattered fragments of the disputed vinyl record away from the front desk."
             },
@@ -479,7 +479,7 @@ export const saraConfig = {
             number: "9.5",
             title: "The Pink Slime Contamination Inquiry and 'Top 10 Prettiest Girls' Incident",
             figure: {
-              src: "assets/sara-slime.jpg",
+              src: "../assets/sara-slime.jpg",
               alt: "Overhead CCTV security footage of Sara holding a pink slime sample at the reception desk",
               caption: "Fig 4. Declassified front-desk surveillance capture (c. 2025) depicting Sara holding an unclassified sample of the non-Newtonian pink slime during a departmental inquiry. The surveillance still was later unintentionally compiled into the viral video countdown <em>'Top 10 Prettiest Girls of All Time'</em>."
             },
@@ -496,7 +496,7 @@ export const saraConfig = {
         number: "10",
         title: "Video game adaptation: RodriguezRun (2024)",
         figure: {
-          src: "assets/rodriguez-run.jpg",
+          src: "../assets/rodriguez-run.jpg",
           alt: "RodriguezRun video game loading screen",
           caption: "Fig 5. Official title and loading screen of <em>RodriguezRun</em> (2024), an infinite-runner mobile title engineered by an anonymous admirer following Sara's May 2024 Eras Tour expedition in Madrid. The title was permanently delisted after selling two copies following cease-and-desist litigation by Sara's husband."
         },
@@ -569,7 +569,7 @@ export const saraConfig = {
         number: "11",
         title: "Cinematic adaptation: Sara the Spicy Señorita (2026)",
         figure: {
-          src: "assets/sara-cinema-screenshot.svg",
+          src: "../assets/sara-cinema-screenshot.svg",
           alt: "Interactive CRT terminal interface of Sara Cinema: Sara the Spicy Señorita",
           caption: "Fig 6. Interface capture of the interactive command-line romantic comedy film <em>Sara the Spicy Señorita</em> (2026), executing in a simulated Windows command prompt terminal (<code>cmd.exe</code>) with CRT phosphor scanline emulation, Safestay reception ASCII scenography, and the dynamic Romance Telemetry Meter."
         },
@@ -640,7 +640,7 @@ export const saraConfig = {
         number: "12",
         title: "Software engineering, 'Sara Script', and the Adjacent Terminal Flaw",
         figure: {
-          src: "assets/diagram-sara-script.svg",
+          src: "../assets/diagram-sara-script.svg",
           alt: "Diagram illustrating Sara Script architecture and the Adjacent Terminal Paradox",
           caption: "Fig 7. Architectural schematic of <em>Sara Script 1.0</em> (2026). Despite multi-tiered WinRT toast delivery algorithms, 100% of romantic shift notifications failed to reach Sara because the software was configured on the reception terminal immediately adjacent to hers."
         },

@@ -11,7 +11,7 @@ export function renderHeader(config) {
           </svg>
         </button>
         <a href="#top" class="wiki-brand" aria-label="${config.site.name} Homepage">
-          <img src="assets/logo.svg" alt="${config.site.name} Logo" height="46" width="198" />
+          <img src="../assets/logo.svg" alt="${config.site.name} Logo" height="46" width="198" />
         </a>
       </div>
 
