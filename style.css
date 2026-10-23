@@ -19,6 +19,7 @@
   --radius-lg: 24px;
   --radius-md: 16px;
   --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --dvd-color: #F1BF00;
 }
 
 *, *::before, *::after {
@@ -223,6 +224,8 @@ body {
 
 /* Cinema & Wiki Link Buttons */
 .cinema-link-btn {
+  position: relative;
+  z-index: 105;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -278,5 +281,108 @@ body {
 
   .spain-illustration {
     max-width: 360px;
+  }
+}
+
+/* ==========================================================================
+   Bouncing DVD Sara Face Screensaver & Collision Reactions
+   ========================================================================== */
+.confetti-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.dvd-sara {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  outline: none;
+}
+
+.dvd-sara:active {
+  cursor: pointer;
+}
+
+.dvd-face-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  transform-origin: center center;
+  transition: filter 0.25s ease;
+  filter: drop-shadow(0 0 16px var(--dvd-color)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.75));
+}
+
+.dvd-face-img {
+  width: 95px;
+  height: 95px;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+}
+
+/* Collision Reaction on Obstacles */
+.element-bumped {
+  animation: dvdBump 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+@keyframes dvdBump {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.08) translateY(-4px); }
+  65% { transform: scale(0.96) translateY(2px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.cinema-link-btn.element-bumped {
+  box-shadow: 0 0 25px rgba(230, 57, 70, 0.9), 0 8px 25px rgba(230, 57, 70, 0.6) !important;
+}
+
+.wiki-link-btn.element-bumped {
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.9), 0 8px 25px rgba(37, 99, 235, 0.6) !important;
+}
+
+.main-heading.element-bumped {
+  text-shadow: 0 0 25px var(--dvd-color), 0 0 10px #fff;
+}
+
+.spain-illustration.element-bumped {
+  filter: drop-shadow(0 0 30px var(--dvd-color)) !important;
+}
+
+.relocation-box.element-bumped {
+  border-color: var(--dvd-color) !important;
+  box-shadow: 0 0 25px rgba(241, 191, 0, 0.3);
+}
+
+.relocation-text h3.element-bumped {
+  color: var(--dvd-color) !important;
+  text-shadow: 0 0 16px var(--dvd-color);
+}
+
+@media (max-width: 650px) {
+  .dvd-face-inner {
+    width: 80px;
+    height: 80px;
+  }
+  .dvd-face-img {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .element-bumped {
+    animation: none !important;
   }
 }
