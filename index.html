@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.5">
 </head>
 <body>
 
@@ -154,12 +154,12 @@
   <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
 
   <!-- Bouncing DVD Sara Element -->
-  <div id="dvd-sara" class="dvd-sara" role="button" aria-label="Bouncing Sara Face Screensaver" tabindex="0">
-    <div class="dvd-face-inner">
-      <img src="assets/sara-face.png" alt="Sara's Cutout Face" class="dvd-face-img" draggable="false" />
+  <div id="dvd-sara" class="dvd-sara" style="position: fixed; top: 0; left: 0; z-index: 100; will-change: transform; cursor: pointer; touch-action: manipulation; width: 100px; height: 100px;" role="button" aria-label="Bouncing Sara Face Screensaver" tabindex="0">
+    <div class="dvd-face-inner" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+      <img src="assets/sara-face.png" alt="Sara's Cutout Face" class="dvd-face-img" width="95" height="95" style="width: 95px; height: 95px; max-width: 95px; max-height: 95px; object-fit: contain; display: block;" draggable="false" />
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2.5"></script>
 </body>
 </html>

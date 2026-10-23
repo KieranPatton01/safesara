@@ -1,5 +1,5 @@
 // app.js - Retro Bouncing DVD Sara Face Screensaver with Real-Time Element Collision & Multi-Sara Spawning
-document.addEventListener('DOMContentLoaded', () => {
+function initScreensaver() {
   const dvdSara = document.getElementById('dvd-sara');
   const dvdFaceInner = dvdSara ? dvdSara.querySelector('.dvd-face-inner') : null;
   const confettiCanvas = document.getElementById('confetti-canvas');
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const SPEED = 200; // Constant screensaver speed in px/sec
   const MAX_SARAS = 10;
   const saras = [];
-  let lastTime = performance.now();
+  let lastTime = null;
 
   function getFaceMetrics() {
     const isMobile = window.innerWidth < 650;
@@ -634,8 +634,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. Main Physics Tick Loop (Continuous Autostart, No Stopping)
   // ---------------------------------------------------------------------------
   function tick(timestamp) {
-    const dt = Math.min((timestamp - lastTime) / 1000, 0.05); // cap at 50ms
-    lastTime = timestamp;
+    const now = typeof timestamp === 'number' ? timestamp : performance.now();
+    if (lastTime === null) {
+      lastTime = now;
+    }
+    const elapsed = (now - lastTime) / 1000;
+    const dt = Math.min(Math.max(elapsed, 0.001), 0.05); // safe between 1ms and 50ms
+    lastTime = now;
 
     // 1. Move each Sara & check wall / obstacle collisions (continuous, non-stop)
     for (const sara of saras) {
@@ -754,4 +759,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Audio unlock gestures
   window.addEventListener('pointerdown', () => initAudio(), { once: true });
   window.addEventListener('keydown', () => initAudio(), { once: true });
-});
+}
+
+// Immediate bulletproof autostart whether DOM is loading or already parsed
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScreensaver);
+} else {
+  initScreensaver();
+}
